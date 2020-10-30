@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS User (
-    id               INTEGER                COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    id               INTEGER                COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     first_name       VARCHAR(50)  NOT NULL  COMMENT 'Имя',
     second_name      VARCHAR(50)  NOT NULL  COMMENT 'Фамилия',
     middle_name      VARCHAR(50)            COMMENT 'Отчество',
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS User (
 COMMENT ON TABLE User IS 'Пользователь';
 
 CREATE TABLE IF NOT EXISTS User_document (
-    id              INTEGER             COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    id              INTEGER             COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     doc_code        INTEGER(3) NOT NULL COMMENT 'ссылка на справочник',
     doc_number      INTEGER    NOT NULL COMMENT 'Номер документа',
     doc_data        TIMESTAMP  NOT NULL COMMENT 'Дата документа',
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS User_document (
 COMMENT ON TABLE User_document IS 'Документ пользователя';
 
 CREATE TABLE IF NOT EXISTS Organization (
-    id               INTEGER                COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    id               INTEGER                COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     name             VARCHAR(128) NOT NULL  COMMENT 'Название организации',
     full_org_name    VARCHAR(128) NOT NULL  COMMENT 'Полное название организации',
     inn              INTEGER      NOT NULL  COMMENT 'ИНН организации',
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS Organization (
 COMMENT ON TABLE Organization IS 'Организация';
 
 CREATE TABLE IF NOT EXISTS Office (
-    id               INTEGER               COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT ,
+    id               INTEGER               COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     name             VARCHAR(128) NOT NULL COMMENT 'Название офиса',
     address          VARCHAR(128) NOT NULL COMMENT 'Адрес офиса',
     phone            INTEGER(15)           COMMENT 'Номер телефона',
@@ -53,7 +53,10 @@ CREATE TABLE IF NOT EXISTS Country (
 COMMENT ON TABLE Country IS 'Страна';
 
 CREATE INDEX IX_User_Id ON User (id);
-//создать индексы для всех остальных таблиц где есть id
+CREATE INDEX IX_User_document_Id ON User_document (id);
+CREATE INDEX IX_Organization_Id ON Organization (id);
+CREATE INDEX IX_Office_Id ON Office (id);
+
 ALTER TABLE User ADD FOREIGN KEY (doc_id) REFERENCES User_document(id);
 ALTER TABLE User ADD FOREIGN KEY (citizenship_code) REFERENCES Country(code);
 ALTER TABLE User_document ADD FOREIGN KEY (doc_code) REFERENCES Document(code);
