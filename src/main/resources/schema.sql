@@ -5,17 +5,17 @@ CREATE TABLE IF NOT EXISTS User (
     middle_name      VARCHAR(50)            COMMENT 'Отчество',
     position         VARCHAR(50)  NOT NULL  COMMENT 'Должность',
     phone            VARCHAR(15)            COMMENT 'Номер телефона',
-    doc_id           INTEGER      NOT NULL  COMMENT 'Внешний ключ на документ удостоверяющий личность',
-    citizenship_code INTEGER      NOT NULL  COMMENT 'Код гражданства',
+    doc_id           INTEGER      NOT NULL  COMMENT 'Внешний ключ на документ, удостоверяющий личность',
+    citizenship_code INTEGER      NOT NULL  COMMENT 'Внешний ключ на документ, содержащий код страны',
     is_identified    BOOLEAN                COMMENT 'Определён/не определён'
 );
 COMMENT ON TABLE User IS 'Пользователь';
 
 CREATE TABLE IF NOT EXISTS User_document (
-    id              INTEGER             COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
-    doc_code        INTEGER(3) NOT NULL COMMENT 'ссылка на справочник',
-    doc_number      INTEGER    NOT NULL COMMENT 'Номер документа',
-    doc_data        TIMESTAMP  NOT NULL COMMENT 'Дата документа',
+    id              INTEGER                 COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
+    doc_code        INTEGER       NOT NULL  COMMENT 'Ссылка на справочник',
+    doc_number      INTEGER       NOT NULL  COMMENT 'Номер документа',
+    doc_data        TIMESTAMP     NOT NULL  COMMENT 'Дата документа',
 );
 COMMENT ON TABLE User_document IS 'Документ пользователя';
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Office (
     id               INTEGER               COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     name             VARCHAR(128) NOT NULL COMMENT 'Название офиса',
     address          VARCHAR(128) NOT NULL COMMENT 'Адрес офиса',
-    phone            INTEGER(15)           COMMENT 'Номер телефона',
+    phone            INTEGER               COMMENT 'Номер телефона',
     is_active        BOOLEAN               COMMENT 'Действующий/не действующий',
 );
 COMMENT ON TABLE Office IS 'Офис';
@@ -48,7 +48,7 @@ COMMENT ON TABLE Document IS 'Документ';
 
 CREATE TABLE IF NOT EXISTS Country (
     name           VARCHAR(256)           COMMENT 'Страна, выдавшая документ',
-    code           INTEGER(3)             COMMENT 'Код страны, выдавшей документ'
+    code           INTEGER                COMMENT 'Код страны, выдавшей документ'
 );
 COMMENT ON TABLE Country IS 'Страна';
 
