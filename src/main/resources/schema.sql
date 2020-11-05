@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS User (
     second_name      VARCHAR(50)  NOT NULL  COMMENT 'Фамилия',
     middle_name      VARCHAR(50)            COMMENT 'Отчество',
     position         VARCHAR(50)  NOT NULL  COMMENT 'Должность',
+    office_id        VARCHAR(20)  NOT NULL  COMMENT 'Идентификатор офиса',
     phone            VARCHAR(15)            COMMENT 'Номер телефона',
     user_doc_id      INTEGER      NOT NULL  COMMENT 'Внешний ключ на документ, удостоверяющий личность',
     citizenship_code INTEGER      NOT NULL  COMMENT 'Внешний ключ на документ, содержащий код страны',
@@ -15,7 +16,7 @@ CREATE TABLE IF NOT EXISTS User_document (
     id              INTEGER                 COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     doc_code        INTEGER       NOT NULL  COMMENT 'Ссылка на справочник',
     doc_number      INTEGER       NOT NULL  COMMENT 'Номер документа',
-    doc_data        TIMESTAMP     NOT NULL  COMMENT 'Дата документа'
+    doc_data        VARCHAR(512)  NOT NULL  COMMENT 'Данные документа'
 );
 COMMENT ON TABLE User_document IS 'Документ пользователя';
 
@@ -34,6 +35,7 @@ COMMENT ON TABLE Organization IS 'Организация';
 CREATE TABLE IF NOT EXISTS Office (
     id               INTEGER               COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     name             VARCHAR(128) NOT NULL COMMENT 'Название офиса',
+    org_id           VARCHAR(20)  NOT NULL COMMENT 'идентификатор организации',
     address          VARCHAR(128) NOT NULL COMMENT 'Адрес офиса',
     phone            VARCHAR(15)           COMMENT 'Номер телефона',
     is_active        BOOLEAN               COMMENT 'Действующий/не действующий'
@@ -62,3 +64,5 @@ CREATE INDEX IX_Office_Id ON Office (id);
 ALTER TABLE User ADD FOREIGN KEY (user_doc_id) REFERENCES User_document(id);
 ALTER TABLE User ADD FOREIGN KEY (citizenship_code) REFERENCES Country(id);
 ALTER TABLE User_document ADD FOREIGN KEY (doc_code) REFERENCES Document(id);
+ALTER TABLE User ADD FOREIGN KEY (office_id) REFERENCES Office(id);
+ALTER TABLE Office ADD FOREIGN KEY (org_id) REFERENCES Organization(id);
