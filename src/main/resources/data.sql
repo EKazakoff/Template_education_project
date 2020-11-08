@@ -10,9 +10,9 @@ INSERT INTO Document (id, name, code) VALUES (3, 'заграничный пас�
 
 INSERT INTO Country (id, name, code) VALUES (7, 'Россия', 212);
 
-INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (3, 1, 975, 'йцукенгшщз');
-INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (4, 2, 597, 'зщшгнекуцйждлорпавы');
-INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (5, 3, 711, 'ячсмитьбюфывапролдйцукенгшщ');
+INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (3, 1, 975, 'Выдан ОВД');
+INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (4, 2, 597, 'Выдан ГАИ');
+INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (5, 3, 711, 'Выдан спец. отделом ОВД');
 
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, user_doc_id, citizenship_code, is_identified)
             VALUES (1, 'Андрей', 'Тихонов', NULL, 'программист', 12, NULL, 3, 7, NULL);
