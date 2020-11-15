@@ -1,11 +1,11 @@
-package controller.organization;
+package com.example.demo.organization;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import service.OrganizationService;
-import view.OrganizationView;
+import com.example.demo.service.OrganizationService;
+import com.example.demo.view.OrganizationView;
 
 @RestController
 @RequestMapping(value = "/api/organization", produces = APPLICATION_JSON_VALUE)

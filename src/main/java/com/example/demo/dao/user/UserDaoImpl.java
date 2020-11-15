@@ -1,6 +1,6 @@
-package dao.user;
+package com.example.demo.dao.user;
 
-import model.Organization;
+import com.example.demo.model.Organization;
 
 public class UserDaoImpl implements UserDao {
     @Override

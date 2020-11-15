@@ -1,6 +1,6 @@
-package dao.organization;
+package com.example.demo.dao.organization;
 
-import model.Organization;
+import com.example.demo.model.Organization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

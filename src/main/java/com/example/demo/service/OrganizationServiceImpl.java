@@ -1,10 +1,11 @@
-package service;
+package com.example.demo.service;
 
-import dao.organization.OrganizationDao;
-import ma.glasnost.orika.MapperFacade;
+import com.example.demo.model.mapper.MapperFacade;
+import com.example.demo.dao.organization.OrganizationDao;
+import com.example.demo.view.OrganizationView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import view.OrganizationView;
+
 import javax.transaction.Transactional;
 
 /**
@@ -30,6 +31,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public OrganizationView getById(long id) {
+
         return mapperFacade.map(dao.loadById(id), OrganizationView.class);
     }
 }

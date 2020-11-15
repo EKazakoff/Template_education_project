@@ -1,4 +1,4 @@
-package model;
+package com.example.demo.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,14 +17,14 @@ import java.util.Set;
 @Entity(name = "Organization")
 public class Organization {
 
-    private String id;
+    private Long id;
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
     @Id
-    public String getId() {
+    public Long getId() {
         return id;
     }
 

@@ -1,6 +1,6 @@
-package service;
+package com.example.demo.service;
 
-import view.OrganizationView;
+import com.example.demo.view.OrganizationView;
 
 public interface OrganizationService {
 
