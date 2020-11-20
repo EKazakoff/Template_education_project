@@ -1,0 +1,36 @@
+package com.example.demo.service;
+
+import com.example.demo.dao.user.UserDao;
+import com.example.demo.model.mapper.MapperFacade;
+import com.example.demo.view.UserView;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+/**
+ * {@inheritDoc}
+ */
+@Service
+public class UserServiceImpl implements UserService {
+    private final UserDao dao;
+    private final MapperFacade mapperFacade;
+
+    /**
+     * {@inheritDoc}
+     */
+    @Autowired
+    public UserServiceImpl(UserDao dao, MapperFacade mapperFacade) {
+        this.dao = dao;
+        this.mapperFacade = mapperFacade;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional
+    public UserView getById(long id) {
+        return mapperFacade.map(dao.getUserById(id), UserView.class);
+    }
+}

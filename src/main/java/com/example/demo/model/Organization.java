@@ -1,14 +1,7 @@
 package com.example.demo.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Version;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Организация
@@ -16,25 +9,23 @@ import java.util.Set;
 
 @Entity(name = "Organization")
 public class Organization {
-
-    private Long id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Id
-    public Long getId() {
-        return id;
-    }
-
+    private Long id;
     String name;
-    String full_org_name;
+    String fullOrgName;
     String inn;
     String kpp;
     String address;
     String phone;
-    boolean is_active;
+    boolean isActive;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -45,11 +36,11 @@ public class Organization {
     }
 
     public String getFull_org_name() {
-        return full_org_name;
+        return fullOrgName;
     }
 
     public void setFull_org_name(String full_org_name) {
-        this.full_org_name = full_org_name;
+        this.fullOrgName = fullOrgName;
     }
 
     public String getInn() {
@@ -85,10 +76,10 @@ public class Organization {
     }
 
     public boolean isIs_active() {
-        return is_active;
+        return isActive;
     }
 
     public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
+        this.isActive = is_active;
     }
 }

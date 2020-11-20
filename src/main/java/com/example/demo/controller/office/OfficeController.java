@@ -21,8 +21,28 @@ public class OfficeController {
     }
 
     @GetMapping("/list/{id}")
-    public OfficeView getOffice(@PathVariable  Long id) {
+    public OfficeView getOffice(@PathVariable Long id) {
         return officeService.getById(id);
+    }
+
+    @GetMapping("/update")
+    public OfficeView updateOffice(@PathVariable Long id, String name, String address, int phone, boolean isActive) {
+
+        //через EntityManager апдейтить объект
+
+
+/*        try {
+            if ((name != null || address != null)) {
+                System.out.println("result" + ":" + "success");
+            } else {
+                System.out.println("result" + ":" + "error");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }*/
+        return null;
     }
 }
 
