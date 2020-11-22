@@ -1,10 +1,14 @@
 package com.example.demo.view;
 
+import javax.validation.constraints.NotNull;
+
 public class OfficeView {
-    public String id;
+    public int id;
+    @NotNull
     public String name;
-    public String org_id;
+    @NotNull
+    public String orgId;
     public String address;
     public String phone;
-    boolean is_active;
+    public boolean isActive;
 }

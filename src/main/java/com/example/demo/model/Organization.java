@@ -11,12 +11,12 @@ import javax.persistence.Id;
 public class Organization {
     @Id
     private Long id;
-    String name;
-    String fullOrgName;
-    String inn;
-    String kpp;
-    String address;
-    String phone;
+    private String name;
+    private String fullOrgName;
+    private int inn;
+    private int kpp;
+    private String address;
+    private int phone;
     boolean isActive;
 
     public Long getId() {
@@ -35,27 +35,27 @@ public class Organization {
         this.name = name;
     }
 
-    public String getFull_org_name() {
+    public String getFullOrgName() {
         return fullOrgName;
     }
 
-    public void setFull_org_name(String full_org_name) {
+    public void setFullOrgName(String fullOrgName) {
         this.fullOrgName = fullOrgName;
     }
 
-    public String getInn() {
+    public int getInn() {
         return inn;
     }
 
-    public void setInn(String inn) {
+    public void setInn(int inn) {
         this.inn = inn;
     }
 
-    public String getKpp() {
+    public int getKpp() {
         return kpp;
     }
 
-    public void setKpp(String kpp) {
+    public void setKpp(int kpp) {
         this.kpp = kpp;
     }
 
@@ -67,19 +67,19 @@ public class Organization {
         this.address = address;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
-    public boolean isIs_active() {
+    public boolean isActive() {
         return isActive;
     }
 
-    public void setIs_active(boolean is_active) {
-        this.isActive = is_active;
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

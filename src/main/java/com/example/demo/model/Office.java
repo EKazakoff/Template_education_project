@@ -3,6 +3,7 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+// модель
 @Entity(name = "Office")
 public class Office {
     @Id

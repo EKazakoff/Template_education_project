@@ -1,12 +1,14 @@
 package com.example.demo.controller.office;
 
+import com.example.demo.model.Office;
 import com.example.demo.service.OfficeService;
 import com.example.demo.view.OfficeView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import javax.persistence.EntityManager;
+import javax.validation.constraints.NotNull;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -25,23 +27,17 @@ public class OfficeController {
         return officeService.getById(id);
     }
 
-    @GetMapping("/update")
-    public OfficeView updateOffice(@PathVariable Long id, String name, String address, int phone, boolean isActive) {
+    @PostMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
+    public void updateOffice(@RequestBody OfficeView office) {
 
+        officeService.updateByPost(office);
         //через EntityManager апдейтить объект
 
+    }
 
-/*        try {
-            if ((name != null || address != null)) {
-                System.out.println("result" + ":" + "success");
-            } else {
-                System.out.println("result" + ":" + "error");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }*/
+    @PostMapping("/save")
+    public OfficeView saveOffice(@PathVariable Long id, String name, String address, int phone, boolean iActive) {
         return null;
     }
 }

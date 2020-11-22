@@ -31,8 +31,35 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public OrganizationView getById(long id) {
-
         return mapperFacade.map(dao.loadById(id), OrganizationView.class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional //определяет транзакцию в БД,работает в рамках persistence context’а. Persistence context
+    //в JPA - это EntityManager. В hibernate он реализован через Session.
+    public OrganizationView listByFilter(String name, int inn, boolean isActive) {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional
+    public OrganizationView updateByPost(Long id, String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional
+    public OrganizationView saveByPost(String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
+        return null;
     }
 }
 

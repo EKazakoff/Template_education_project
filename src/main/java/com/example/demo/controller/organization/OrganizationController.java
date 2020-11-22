@@ -23,6 +23,16 @@ public class OrganizationController {
     public OrganizationView getOrganization(@PathVariable  Long id) {
         return organizationService.getById(id);
     }
+
+    @PostMapping("/update")
+    public OrganizationView updateOrganization(@PathVariable Long id, String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
+        return null;
+    }
+
+    @PostMapping("/save")
+    public OrganizationView saveOrganization(@PathVariable String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
+        return null;
+    }
 }
 
 
