@@ -6,10 +6,9 @@ import com.example.demo.view.OfficeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * {@inheritDoc}
@@ -66,7 +65,7 @@ public class OfficeServiceImpl implements OfficeService {
     public void updateByPost(OfficeView office) {
         // view -> model
 
-        dao.update(model);
+        dao.update(office);
     }
 
     /**
@@ -76,5 +75,27 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public OfficeView saveByPost(Long id, String name, String address, int phone, boolean iActive) {
         return null;
+    }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        dao.deletebyId(id);
+    }
+
+    @Override
+    @Transactional
+    public void saveOffice(OfficeView office) {
+        dao.save(office);
+    }
+
+    @Override
+    @Transactional
+    public List<OfficeView> listOffice(OfficeView office) {
+        List<OfficeView> resultList = new ArrayList<>();
+        dao.list(office).forEach( office1 -> {
+            resultList.add(mapperFacade.map(office1, OfficeView.class));
+        });
+        return resultList;
     }
 }

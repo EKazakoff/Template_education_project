@@ -2,6 +2,9 @@ package com.example.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 /**
  * Организация
@@ -17,7 +20,9 @@ public class Organization {
     private int kpp;
     private String address;
     private int phone;
-    boolean isActive;
+    private boolean isActive;
+
+    private List<Office> offices;
 
     public Long getId() {
         return id;
@@ -81,5 +86,15 @@ public class Organization {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "org_id")
+    public List<Office> getOffices() {
+        return offices;
+    }
+
+    public void setOffices(List<Office> offices) {
+        this.offices = offices;
     }
 }

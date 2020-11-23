@@ -28,19 +28,19 @@ public class UserDocument {
         this.docCode = docCode;
     }
 
-    public int getDoc_number() {
+    public int getDocNumber() {
         return docNumber;
     }
 
-    public void setDoc_number(int doc_number) {
+    public void setDocNumber(int doc_number) {
         this.docNumber = docNumber;
     }
 
-    public String getDoc_data() {
+    public String getDocData() {
         return docData;
     }
 
-    public void setDoc_data(String doc_data) {
+    public void setDocData(String doc_data) {
         this.docData = doc_data;
     }
 }

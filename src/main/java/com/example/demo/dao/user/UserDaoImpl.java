@@ -2,12 +2,14 @@ package com.example.demo.dao.user;
 
 import com.example.demo.model.Organization;
 import com.example.demo.model.User;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+@Repository
 public class UserDaoImpl implements UserDao {
     private final EntityManager em;
 

@@ -1,15 +1,17 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 // модель
 @Entity(name = "Office")
 public class Office {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String orgId;
+    @ManyToOne
+    @JoinColumn(name = "org_id")
+    private Organization organization;
     private String address;
     private String phone;
     private Boolean isActive;
@@ -30,12 +32,12 @@ public class Office {
         this.name = name;
     }
 
-    public String getOrgId() {
-        return orgId;
+    public Organization getOrganization() {
+        return organization;
     }
 
-    public void setOrgId(String orgId) {
-        this.orgId = orgId;
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
 
     public String getAddress() {
