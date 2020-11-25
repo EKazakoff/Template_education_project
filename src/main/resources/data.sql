@@ -8,18 +8,18 @@ INSERT INTO Document (id, name, code) VALUES (1, 'пасспорт', 21);
 INSERT INTO Document (id, name, code) VALUES (2, 'водительское удостоверение', 22);
 INSERT INTO Document (id, name, code) VALUES (3, 'заграничный паспорт', 23);
 
-INSERT INTO Country (id, name, code) VALUES (7, 'Россия', 212);
+INSERT INTO Country (id, name, code) VALUES (7, 'Российская Федерация', 643);
 
 INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (3, 1, 975, 'Выдан ОВД');
 INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (4, 2, 597, 'Выдан ГАИ');
 INSERT INTO User_document (id, doc_code, doc_number, doc_data) VALUES (5, 3, 711, 'Выдан спец. отделом ОВД');
 
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, user_doc_id, citizenship_code, is_identified)
-            VALUES (1, 'Андрей', 'Тихонов', NULL, 'программист', 12, NULL, 3, 7, NULL);
+            VALUES (1, 'Максим', 'Умнов', NULL, 'программист', 12, NULL, 3, 7, NULL);
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, user_doc_id, citizenship_code, is_identified)
-            VALUES (2, 'Владимир', 'Соколов', NULL, 'продавец', 12, NULL, 4, 7, NULL);
+            VALUES (2, 'Сергей', 'Хитров', NULL, 'продавец', 12, NULL, 4, 7, NULL);
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, user_doc_id, citizenship_code, is_identified)
-            VALUES (3, 'Наталья', 'Терехова', NULL, 'бухгалтер', 12, NULL, 5, 7, NULL);
+            VALUES (3, 'Наталья', 'Шустрова', NULL, 'бухгалтер', 12, NULL, 5, 7, NULL);
 
 
 

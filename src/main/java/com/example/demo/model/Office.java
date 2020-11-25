@@ -9,9 +9,11 @@ public class Office {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "org_id")
     private Organization organization;
+
     private String address;
     private String phone;
     private Boolean isActive;

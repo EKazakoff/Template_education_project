@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -13,15 +10,17 @@ import java.util.List;
 @Entity(name = "Organization")
 public class Organization {
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String fullOrgName;
-    private int inn;
-    private int kpp;
+    private String inn;
+    private String kpp;
     private String address;
-    private int phone;
+    private String phone;
     private boolean isActive;
 
+    @OneToMany(mappedBy = "organization")
     private List<Office> offices;
 
     public Long getId() {
@@ -48,19 +47,19 @@ public class Organization {
         this.fullOrgName = fullOrgName;
     }
 
-    public int getInn() {
+    public String getInn() {
         return inn;
     }
 
-    public void setInn(int inn) {
+    public void setInn(String inn) {
         this.inn = inn;
     }
 
-    public int getKpp() {
+    public String getKpp() {
         return kpp;
     }
 
-    public void setKpp(int kpp) {
+    public void setKpp(String kpp) {
         this.kpp = kpp;
     }
 
@@ -72,11 +71,11 @@ public class Organization {
         this.address = address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -88,8 +87,6 @@ public class Organization {
         isActive = active;
     }
 
-    @OneToMany
-    @JoinColumn(name = "org_id")
     public List<Office> getOffices() {
         return offices;
     }

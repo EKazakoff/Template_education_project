@@ -58,8 +58,9 @@ public class OfficeDaoImpl implements OfficeDao {
     public List<Office> list(OfficeView office) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Office> criteria = builder.createQuery(Office.class);
-
         Root<Office> officeRoot = criteria.from(Office.class);
+        //можно и чз предикат WHERE сделать. Он будет там где не null.
+        //criteriaQuery.where(officeRoot.get("name").in(null));
         if(office.getName() != null) {
             criteria.where(builder.equal(officeRoot.get("name"), office.getName()));
         }

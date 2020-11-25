@@ -1,7 +1,6 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Пользователь
@@ -15,9 +14,15 @@ public class User {
     private String middleName;
     private String position;
     private String officeId;
-    private int phone;
-    private int userDocId;
-    private int citizenshipCode;
+    private String phone;
+
+    @OneToOne
+    private UserDocument userDoc;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "citizenship_code")
+    private Country country;
+
     private Boolean isIdentified;
 
     /**
@@ -74,28 +79,28 @@ public class User {
         this.officeId = officeId;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public int getUserDocId() {
-        return userDocId;
+    public UserDocument getUserDoc() {
+        return userDoc;
     }
 
-    public void setUserDocId(int userDocId) {
-        this.userDocId = userDocId;
+    public void setUserDoc(UserDocument userDoc) {
+        this.userDoc = userDoc;
     }
 
-    public int getCitizenshipCode() {
-        return citizenshipCode;
+    public Country getCountry() {
+        return country;
     }
 
-    public void setCitizenshipCode(int citizenshipCode) {
-        this.citizenshipCode = citizenshipCode;
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public Boolean getIdentified() {
