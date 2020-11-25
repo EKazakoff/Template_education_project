@@ -13,7 +13,6 @@ public class User {
     private String secondName;
     private String middleName;
     private String position;
-    private String officeId;
     private String phone;
 
     @OneToOne
@@ -23,7 +22,19 @@ public class User {
     @JoinColumn(name = "citizenship_code")
     private Country country;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "office_id")
+    private Office office;
+
     private Boolean isIdentified;
+
+    public Office getOffice() {
+        return office;
+    }
+
+    public void setOffice(Office office) {
+        this.office = office;
+    }
 
     /**
      * Конструктор для hibernate
@@ -69,14 +80,6 @@ public class User {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public String getOfficeId() {
-        return officeId;
-    }
-
-    public void setOfficeId(String officeId) {
-        this.officeId = officeId;
     }
 
     public String getPhone() {

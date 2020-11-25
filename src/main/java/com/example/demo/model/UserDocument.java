@@ -1,16 +1,25 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "User_document")
 public class UserDocument {
 
     @Id
     private Long id;
-    private int docCode;
+    @ManyToOne
+    @JoinColumn(name = "doc_code")
+    private Document document;
     private int docNumber;
     private String docData;
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
 
     public Long getId() {
         return id;
@@ -18,14 +27,6 @@ public class UserDocument {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public int getDocCode() {
-        return docCode;
-    }
-
-    public void setDocCode(int docCode) {
-        this.docCode = docCode;
     }
 
     public int getDocNumber() {

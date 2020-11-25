@@ -15,7 +15,7 @@ public class Country {
     private String name;
     private int code;
 
-    @OneToMany(mappedBy = "сountry")
+/*    @OneToMany(mappedBy = "сountry")
     private List<User> users;
 
     public List<User> getUsers() {
@@ -24,7 +24,7 @@ public class Country {
 
     public void setUsers(List<User> users) {
         this.users = users;
-    }
+    }*/
 
     public Long getId() {
         return id;
