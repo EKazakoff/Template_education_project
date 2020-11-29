@@ -56,6 +56,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
     public void save(Organization organization) {
         em.persist(organization);
     }
+
     private CriteriaQuery<Organization> buildCriteria(String name) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Organization> criteria = builder.createQuery(Organization.class);

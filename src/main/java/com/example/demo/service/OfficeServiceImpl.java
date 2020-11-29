@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.office.OfficeDao;
+import com.example.demo.model.Office;
+import com.example.demo.model.Organization;
 import com.example.demo.model.mapper.MapperFacade;
 import com.example.demo.view.OfficeView;
+import com.example.demo.view.OrganizationView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,17 +20,6 @@ import java.util.List;
 public class OfficeServiceImpl implements OfficeService {
     private final OfficeDao dao;
     private final MapperFacade mapperFacade;
-
-/*    private static final EntityManager entityManager;
-
-    static {
-        try {
-            EntityManagerFactory factory = Persistence.createEntityManagerFactory("AccountsUnit");
-            entityManager = factory.createEntityManager();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
-        }
-    }*/
 
     /**
      * {@inheritDoc}
@@ -44,15 +36,14 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     @Transactional
     public OfficeView getById(long id) {
-        return mapperFacade.map(dao.loadById(id), OfficeView.class);
+        return getOfficeView(dao.loadById(id));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @Transactional //определяет транзакцию в БД,работает в рамках persistence context’а. Persistence context
-    //в JPA - это EntityManager. В hibernate он реализован через Session.
+    @Transactional
     public OfficeView listByFilter(Long id, String name, int phone, boolean isActive) {
         return null;
     }
@@ -63,7 +54,6 @@ public class OfficeServiceImpl implements OfficeService {
     @Override
     @Transactional
     public void updateByPost(OfficeView office) {
-        // view -> model
 
         dao.update(office);
     }
@@ -93,9 +83,16 @@ public class OfficeServiceImpl implements OfficeService {
     @Transactional
     public List<OfficeView> listOffice(OfficeView office) {
         List<OfficeView> resultList = new ArrayList<>();
-        dao.list(office).forEach( office1 -> {
-            resultList.add(mapperFacade.map(office1, OfficeView.class));
-        });
+        List<Office> offices = dao.list(office);
+        for (int i = 0; i < offices.size(); i++) {
+            resultList.add(getOfficeView(offices.get(i)));
+        }
         return resultList;
+    }
+
+    private OfficeView getOfficeView(Office office) {
+        OfficeView officeView = mapperFacade.map(office, OfficeView.class);
+        officeView.setOrganizationView(mapperFacade.map(office.getOrganization(), OrganizationView.class));
+        return officeView;
     }
 }

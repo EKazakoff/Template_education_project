@@ -14,4 +14,3 @@ public interface OrganizationService {
     public OrganizationView saveByPost(String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive);
 
 }
-

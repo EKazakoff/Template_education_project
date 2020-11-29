@@ -1,11 +1,13 @@
 package com.example.demo.controller.organization;
 
-import com.example.demo.model.Organization;
 import com.example.demo.service.OrganizationService;
-import com.example.demo.service.OrganizationServiceImpl;
 import com.example.demo.view.OrganizationView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -20,7 +22,7 @@ public class OrganizationController {
     }
 
     @GetMapping("/list/{id}")
-    public OrganizationView getOrganization(@PathVariable  Long id) {
+    public OrganizationView getOrganization(@PathVariable Long id) {
         return organizationService.getById(id);
     }
 

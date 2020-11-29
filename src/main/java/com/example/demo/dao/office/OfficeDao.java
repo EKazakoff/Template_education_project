@@ -6,7 +6,7 @@ import com.example.demo.view.OfficeView;
 import java.util.List;
 
 public interface OfficeDao {
-    public Office loadById (Long id);
+    public Office loadById(Long id);
 
     void update(OfficeView office);
 

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -59,24 +61,25 @@ public class OfficeDaoImpl implements OfficeDao {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Office> criteria = builder.createQuery(Office.class);
         Root<Office> officeRoot = criteria.from(Office.class);
-        //можно и чз предикат WHERE сделать. Он будет там где не null.
-        //criteriaQuery.where(officeRoot.get("name").in(null));
-        if(office.getName() != null) {
-            criteria.where(builder.equal(officeRoot.get("name"), office.getName()));
+
+        List<Predicate> predicates = new ArrayList<Predicate>();
+
+        if (office.getName() != null) {
+            predicates.add(builder.like(officeRoot.get("name"), "%" + office.getName() + "%"));
         }
-        if(office.getOrgId() != null) {
-            criteria.where(builder.equal(officeRoot.get("orgId"), office.getOrgId()));
+        if (office.getOrgId() != null) {
+            predicates.add(builder.equal(officeRoot.get("orgId"), office.getOrgId()));
         }
 
-        if(office.getPhone() != null) {
-            criteria.where(builder.equal(officeRoot.get("phone"), office.getPhone()));
+        if (office.getPhone() != null) {
+            predicates.add(builder.equal(officeRoot.get("phone"), office.getPhone()));
         }
 
-        if(office.getOrgId() != null) {
-            criteria.where(builder.equal(officeRoot.get("orgId"), office.getOrgId()));
+        if (office.getOrgId() != null) {
+            predicates.add(builder.equal(officeRoot.get("orgId"), office.getOrgId()));
         }
+        criteria.where(predicates.toArray(new Predicate[]{}));
 
         return em.createQuery(criteria).getResultList();
-
     }
 }

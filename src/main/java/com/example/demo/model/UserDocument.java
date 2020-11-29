@@ -1,12 +1,19 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 @Entity(name = "User_document")
 public class UserDocument {
-
     @Id
     private Long id;
+    @MapsId("id")
+    @OneToOne
+    private User user;
     @ManyToOne
     @JoinColumn(name = "doc_code")
     private Document document;
@@ -21,12 +28,12 @@ public class UserDocument {
         this.document = document;
     }
 
-    public Long getId() {
-        return id;
+    public User getUser() {
+        return user;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public int getDocNumber() {
@@ -43,5 +50,13 @@ public class UserDocument {
 
     public void setDocData(String doc_data) {
         this.docData = doc_data;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

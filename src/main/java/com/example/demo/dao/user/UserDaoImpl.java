@@ -25,7 +25,6 @@ public class UserDaoImpl implements UserDao {
         Root<User> user = criteria.from(User.class);
         criteria.where(builder.equal(user.get("id"), id));
 
-
         return em.createQuery(criteria).getSingleResult();
     }
 }

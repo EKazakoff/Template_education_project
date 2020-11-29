@@ -1,6 +1,11 @@
 package com.example.demo.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 /**
  * Пользователь
@@ -15,10 +20,10 @@ public class User {
     private String position;
     private String phone;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private UserDocument userDoc;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "citizenship_code")
     private Country country;
 
@@ -34,12 +39,6 @@ public class User {
 
     public void setOffice(Office office) {
         this.office = office;
-    }
-
-    /**
-     * Конструктор для hibernate
-     */
-    public User() {
     }
 
     public Long getId() {

@@ -38,8 +38,7 @@ public class OrganizationServiceImpl implements OrganizationService {
      * {@inheritDoc}
      */
     @Override
-    @Transactional //определяет транзакцию в БД,работает в рамках persistence context’а. Persistence context
-    //в JPA - это EntityManager. В hibernate он реализован через Session.
+    @Transactional
     public OrganizationView listByFilter(String name, int inn, boolean isActive) {
         return null;
     }

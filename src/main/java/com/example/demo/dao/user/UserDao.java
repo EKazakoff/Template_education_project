@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao {
 
-    public User getUserById (long id);
+    public User getUserById(long id);
 }

@@ -38,8 +38,7 @@ public class UserServiceImpl implements UserService {
      * {@inheritDoc}
      */
     @Override
-    @Transactional //определяет транзакцию в БД,работает в рамках persistence context’а. Persistence context
-    //в JPA - это EntityManager. В hibernate он реализован через Session.
+    @Transactional
     public UserView listByFilter(String officeId, String firstName, String secondName, String middleName, String position, int docCode, int citizenshipCode) {
         return null;
     }
