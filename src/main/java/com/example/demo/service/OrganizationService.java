@@ -7,10 +7,9 @@ public interface OrganizationService {
 
     public OrganizationView getById(long id);
 
-    public OrganizationView listByFilter(String name, int inn, boolean isActive);
+    public void updateByPost(OrganizationView organizationView);
 
-    public OrganizationView updateByPost(Long id, String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive);
+    public void saveByPost(OrganizationView organizationView);
 
-    public OrganizationView saveByPost(String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive);
-
+    java.util.List<com.example.demo.view.OrganizationFilterView> listOrganization(com.example.demo.view.OrganizationFilterView organizationFilterView);
 }

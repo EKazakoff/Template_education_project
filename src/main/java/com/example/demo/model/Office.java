@@ -8,20 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Офис
+ */
 @Entity(name = "Office")
 public class Office {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+    private String address;
+    private String phone;
+    private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "org_id")
     private Organization organization;
-
-    private String address;
-    private String phone;
-    private Boolean isActive;
 
     public Long getId() {
         return id;

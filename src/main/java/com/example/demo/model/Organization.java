@@ -13,15 +13,16 @@ import java.util.List;
 @Entity(name = "Organization")
 public class Organization {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String fullOrgName;
+    @javax.persistence.Column(name="full_org_name")
+    private String fullName;
     private String inn;
     private String kpp;
     private String address;
     private String phone;
-    private boolean isActive;
+    private Boolean isActive;
 
     @OneToMany(mappedBy = "organization")
     private List<Office> offices;
@@ -42,12 +43,12 @@ public class Organization {
         this.name = name;
     }
 
-    public String getFullOrgName() {
-        return fullOrgName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullOrgName(String fullOrgName) {
-        this.fullOrgName = fullOrgName;
+    public void setFullName(String fullOrgName) {
+        this.fullName = fullOrgName;
     }
 
     public String getInn() {
@@ -82,11 +83,11 @@ public class Organization {
         this.phone = phone;
     }
 
-    public boolean isActive() {
+    public Boolean isActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setActive(Boolean active) {
         isActive = active;
     }
 

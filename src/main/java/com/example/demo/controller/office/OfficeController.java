@@ -29,8 +29,7 @@ public class OfficeController {
     }
 
     @GetMapping("/list/{id}")
-    public OfficeView getOffice(@PathVariable Long id) {
-
+    public OfficeView getOffice(@PathVariable Long id) throws Exception {
         return officeService.getById(id);
     }
 
@@ -56,6 +55,5 @@ public class OfficeController {
         return officeService.listOffice(office);
     }
 }
-
 
 

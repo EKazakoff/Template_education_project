@@ -39,8 +39,9 @@ public class OrganizationServiceImpl implements OrganizationService {
      */
     @Override
     @Transactional
-    public OrganizationView listByFilter(String name, int inn, boolean isActive) {
-        return null;
+    public void updateByPost(OrganizationView organizationView) {
+        com.example.demo.model.Organization organization = mapperFacade.map(organizationView, com.example.demo.model.Organization.class);
+        dao.update(organization);
     }
 
     /**
@@ -48,17 +49,25 @@ public class OrganizationServiceImpl implements OrganizationService {
      */
     @Override
     @Transactional
-    public OrganizationView updateByPost(Long id, String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
-        return null;
+    public void saveByPost(OrganizationView organizationView) {
+        com.example.demo.model.Organization organization = mapperFacade.map(organizationView, com.example.demo.model.Organization.class);
+        dao.save(organization);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
-    @Transactional
-    public OrganizationView saveByPost(String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
-        return null;
+    public java.util.List<com.example.demo.view.OrganizationFilterView> listOrganization(com.example.demo.view.OrganizationFilterView organizationFilterView) {
+        java.util.List<com.example.demo.view.OrganizationFilterView> resultList = new java.util.ArrayList<>();
+        java.util.List<com.example.demo.model.Organization> orgList = dao.loadByFilter(organizationFilterView);
+        for (int i = 0; i < orgList.size(); i++) {
+            resultList.add(getOrganizationView(orgList.get(i)));
+        }
+        return resultList;
+    }
+
+    private com.example.demo.view.OrganizationFilterView getOrganizationView(com.example.demo.model.Organization organization) {
+        com.example.demo.view.OrganizationFilterView organizationView = mapperFacade.map(organization, com.example.demo.view.OrganizationFilterView.class);
+        //organizationView.setOrganizationView(mapperFacade.map(organization.getOrganization(), OrganizationView.class));
+        return organizationView;
     }
 }
 

@@ -38,4 +38,8 @@ public interface OrganizationDao {
      * @param organization
      */
     void save(Organization organization);
+
+    List<Organization> loadByFilter(com.example.demo.view.OrganizationFilterView organizationFilterView);
+
+    void update(Organization organization);
 }

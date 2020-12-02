@@ -6,25 +6,19 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+/**
+ * Страна
+ */
+
 @Entity(name = "Country")
 public class Country {
 
     @Id
     @GeneratedValue
     private Long id;
+
     private String name;
-    private int code;
-
-/*    @OneToMany(mappedBy = "сountry")
-    private List<User> users;
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }*/
+    private Integer code;
 
     public Long getId() {
         return id;
@@ -42,11 +36,11 @@ public class Country {
         this.name = name;
     }
 
-    public int getCode() {
+    public Integer getCode() {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(Integer code) {
         this.code = code;
     }
 }

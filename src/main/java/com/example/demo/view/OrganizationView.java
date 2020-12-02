@@ -6,7 +6,7 @@ public class OrganizationView {
 
     private int id;
     private String name;
-    private String fullOrgName;
+    private String fullName;
     private String inn;
     private String kpp;
     private String address;
@@ -31,11 +31,11 @@ public class OrganizationView {
     }
 
     public String getFullOrgName() {
-        return fullOrgName;
+        return fullName;
     }
 
     public void setFullOrgName(String fullOrgName) {
-        this.fullOrgName = fullOrgName;
+        this.fullName = fullOrgName;
     }
 
     public String getInn() {

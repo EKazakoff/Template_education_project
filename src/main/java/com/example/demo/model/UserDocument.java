@@ -7,18 +7,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+/**
+ * Документ пользователя
+ */
 @Entity(name = "User_document")
 public class UserDocument {
+
     @Id
     private Long id;
+
+    private Document document;
+    private Integer docNumber;
+    private String docData;
+
     @MapsId("id")
     @OneToOne
     private User user;
+
     @ManyToOne
     @JoinColumn(name = "doc_code")
-    private Document document;
-    private int docNumber;
-    private String docData;
 
     public Document getDocument() {
         return document;
@@ -36,11 +43,11 @@ public class UserDocument {
         this.user = user;
     }
 
-    public int getDocNumber() {
+    public Integer getDocNumber() {
         return docNumber;
     }
 
-    public void setDocNumber(int doc_number) {
+    public void setDocNumber(Integer docNumber) {
         this.docNumber = docNumber;
     }
 

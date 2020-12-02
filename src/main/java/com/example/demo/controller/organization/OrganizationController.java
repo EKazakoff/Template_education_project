@@ -1,13 +1,15 @@
 package com.example.demo.controller.organization;
 
 import com.example.demo.service.OrganizationService;
+import com.example.demo.view.DataView;
+import com.example.demo.view.OrganizationFilterView;
 import com.example.demo.view.OrganizationView;
+import com.example.demo.view.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -27,15 +29,23 @@ public class OrganizationController {
     }
 
     @PostMapping("/update")
-    public OrganizationView updateOrganization(@PathVariable Long id, String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
-        return null;
+    public ResultView updateOrganization(@RequestBody OrganizationView organizationView) {
+        organizationService.updateByPost(organizationView);
+        return new ResultView("success");
     }
 
     @PostMapping("/save")
-    public OrganizationView saveOrganization(@PathVariable String name, String fullOrgName, int inn, int kpp, String address, int phone, boolean iActive) {
-        return null;
+    public ResultView saveOrganization(@RequestBody OrganizationView organizationView) {
+        organizationService.saveByPost(organizationView);
+        return new ResultView("success");
+    }
+
+    @PostMapping("/list")
+    public DataView listOffice(@RequestBody @Valid OrganizationFilterView organizationFilterView) {
+        return new DataView(organizationService.listOrganization(organizationFilterView));
     }
 }
+
 
 
 
