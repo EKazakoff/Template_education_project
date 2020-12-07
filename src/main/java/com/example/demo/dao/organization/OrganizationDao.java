@@ -1,6 +1,7 @@
 package com.example.demo.dao.organization;
 
 import com.example.demo.model.Organization;
+import com.example.demo.view.OrganizationFilterView;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  */
 
 public interface OrganizationDao {
+
     /**
      * Получить все объекты Organization
      *
@@ -39,7 +41,7 @@ public interface OrganizationDao {
      */
     void save(Organization organization);
 
-    List<Organization> loadByFilter(com.example.demo.view.OrganizationFilterView organizationFilterView);
+    List<Organization> loadByFilter(OrganizationFilterView organizationFilterView);
 
-    void update(Organization organization);
+    void updatePost(Organization organization) throws Exception;
 }

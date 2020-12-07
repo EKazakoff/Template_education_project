@@ -1,10 +1,11 @@
 package com.example.demo.controller.office;
 
 import com.example.demo.service.OfficeService;
+import com.example.demo.view.OfficeFilterView;
 import com.example.demo.view.OfficeView;
+import com.example.demo.view.OfficeViewFilterOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,11 +36,10 @@ public class OfficeController {
 
     @GetMapping("/delete/{id}")
     public void delOffice(@PathVariable Long id) {
-
         officeService.deleteById(id);
     }
 
-    @DeleteMapping("/update")
+    @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public void updateOffice(@RequestBody @Valid OfficeView office) {
         officeService.updateByPost(office);
@@ -51,9 +51,10 @@ public class OfficeController {
     }
 
     @PostMapping("/list")
-    public List<OfficeView> listOffice(@RequestBody @Valid OfficeView office) {
+    public List<OfficeViewFilterOut> listOffice(@RequestBody @Valid OfficeFilterView office) {
         return officeService.listOffice(office);
     }
 }
+
 
 

@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 /**
@@ -13,10 +10,10 @@ import java.util.List;
 @Entity(name = "Organization")
 public class Organization {
     @Id
-    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @javax.persistence.Column(name="full_org_name")
+    @Column(name = "full_org_name")
     private String fullName;
     private String inn;
     private String kpp;

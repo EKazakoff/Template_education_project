@@ -1,6 +1,10 @@
 package com.example.demo.dao.organization;
 
+import com.example.demo.model.Office;
 import com.example.demo.model.Organization;
+import com.example.demo.view.OfficeView;
+import com.example.demo.view.OrganizationFilterView;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +12,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,12 +65,12 @@ public class OrganizationDaoImpl implements OrganizationDao {
     }
 
     @Override
-    public List<Organization> loadByFilter(com.example.demo.view.OrganizationFilterView organizationFilterView) {
+    public List<Organization> loadByFilter(OrganizationFilterView organizationFilterView) {
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Organization> criteria = builder.createQuery(Organization.class);
         Root<Organization> orgRoot = criteria.from(Organization.class);
 
-        List<javax.persistence.criteria.Predicate> predicates = new java.util.ArrayList<javax.persistence.criteria.Predicate>();
+        List<Predicate> predicates = new ArrayList<Predicate>();
 
         if (organizationFilterView.getInn() != null) {
             predicates.add(builder.equal(orgRoot.get("inn"),  organizationFilterView.getInn()));
@@ -72,43 +78,40 @@ public class OrganizationDaoImpl implements OrganizationDao {
         if (organizationFilterView.getIsActive() != null) {
             predicates.add(builder.equal(orgRoot.get("isActive"), organizationFilterView.getIsActive()));
         }
-
         if (organizationFilterView.getName() != null) {
             predicates.add(builder.like(orgRoot.get("name"), "%" + organizationFilterView.getName() +  "%"));
         }
 
-        criteria.where(predicates.toArray(new javax.persistence.criteria.Predicate[]{}));
+        criteria.where(predicates.toArray(new Predicate[]{}));
 
         return em.createQuery(criteria).getResultList();
     }
 
     @Override
-    public void update(Organization organization) {
+    public void updatePost(Organization organization) throws Exception {
         Organization organizationEntity = em.find(Organization.class, organization.getId());
 
         updateEntityWithNotNullFields(organization, organizationEntity);
     }
 
+    private void updateEntityWithNotNullFields(Organization organization, Organization orgEntity) throws Exception {
+        if (orgEntity == null) {
+            throw new Exception("Can't find organization");
+        }
+        orgEntity.setActive(organization.isActive() != null ? organization.isActive() : orgEntity.isActive());
 
+        orgEntity.setAddress(organization.getAddress() != null ? organization.getAddress() : orgEntity.getAddress());
 
-    private void updateEntityWithNotNullFields(Organization organization, Organization orgEntity) {
-        orgEntity.setActive(organization.isActive() != null ? orgEntity.isActive() : orgEntity.isActive());
+        orgEntity.setName(organization.getName() != null ? organization.getName() : orgEntity.getName());
 
-        orgEntity.setAddress(organization.getAddress() != null ? orgEntity.getAddress() : orgEntity.getAddress());
+        orgEntity.setOffices(organization.getOffices() != null ? organization.getOffices() : orgEntity.getOffices());
 
-        orgEntity.setName(organization.getName() != null ? orgEntity.getName() : orgEntity.getName());
+        orgEntity.setId(organization.getId() != null ? organization.getId() : orgEntity.getId());
 
-        orgEntity.setFullName(organization.getFullName() != null ? orgEntity.getFullName() : orgEntity.getFullName());
+        orgEntity.setKpp(organization.getKpp() != null ? organization.getKpp() : orgEntity.getKpp());
 
-        orgEntity.setInn(organization.getInn() != null ? orgEntity.getInn() : orgEntity.getInn());
+        orgEntity.setPhone(organization.getPhone() != null ? organization.getPhone() : orgEntity.getPhone());
 
-        orgEntity.setPhone(organization.getPhone() != null ? orgEntity.getPhone() : orgEntity.getPhone());
-
-        orgEntity.setKpp(organization.getKpp() != null ? orgEntity.getKpp() : orgEntity.getKpp());
-
-        orgEntity.setId(organization.getId() != null ? orgEntity.getId() : orgEntity.getId());
-
-        orgEntity.setOffices(organization.getOffices() != null ? orgEntity.getOffices() : orgEntity.getOffices());
-
+        orgEntity.setInn(organization.getInn() != null ? organization.getInn() : orgEntity.getInn());
     }
 }

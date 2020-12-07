@@ -1,7 +1,5 @@
 package com.example.demo.view;
 
-import java.util.List;
-
 public class OrganizationView {
 
     private int id;
@@ -12,7 +10,6 @@ public class OrganizationView {
     private String address;
     private String phone;
     private boolean isActive;
-    private List<OfficeView> offices;
 
     public int getId() {
         return id;
@@ -30,12 +27,12 @@ public class OrganizationView {
         this.name = name;
     }
 
-    public String getFullOrgName() {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullOrgName(String fullOrgName) {
-        this.fullName = fullOrgName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getInn() {
@@ -78,11 +75,4 @@ public class OrganizationView {
         isActive = active;
     }
 
-    public List<OfficeView> getOffices() {
-        return offices;
-    }
-
-    public void setOffices(List<OfficeView> offices) {
-        this.offices = offices;
-    }
 }

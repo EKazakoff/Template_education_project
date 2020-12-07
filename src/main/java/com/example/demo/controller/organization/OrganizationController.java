@@ -24,12 +24,12 @@ public class OrganizationController {
     }
 
     @GetMapping("/list/{id}")
-    public OrganizationView getOrganization(@PathVariable Long id) {
-        return organizationService.getById(id);
+    public DataView getOrganization(@PathVariable Long id) {
+        return new DataView(organizationService.getById(id));
     }
 
     @PostMapping("/update")
-    public ResultView updateOrganization(@RequestBody OrganizationView organizationView) {
+    public ResultView updateOrganization(@RequestBody OrganizationView organizationView) throws Exception {
         organizationService.updateByPost(organizationView);
         return new ResultView("success");
     }
@@ -45,7 +45,6 @@ public class OrganizationController {
         return new DataView(organizationService.listOrganization(organizationFilterView));
     }
 }
-
 
 
 

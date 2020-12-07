@@ -1,21 +1,20 @@
 package com.example.demo.service;
 
-import com.example.demo.view.OfficeView;
+import com.example.demo.view.UserFilterView;
+import com.example.demo.view.UserFilterViewOut;
 import com.example.demo.view.UserView;
+
+import java.util.List;
 
 public interface UserService {
 
     public UserView getById(long id);
 
-    public UserView listByFilter(String officeId, String firstName, String secondName, String middleName,
-                                 String position, int docCode, int citizenshipCode);
+    public List<UserFilterViewOut> listByFilter(UserFilterView user);
 
-    public UserView updateByPost(Long id, int officeId, String firstName, String secondName, String middleName,
-                                 String position, int phone, String docName, int docNumber, String docData,
-                                 int citizenshipCode, boolean isIdentified);
+    public void updateByPost(UserView user) throws Exception;
 
-    public UserView saveByPost(int officeId, String firstName, String secondName, String middleName, String position,
-                               int phone, int docCode, String docName, int docNumber, String docData,
-                               int citizenshipCode, boolean isIdentified);
+    public void saveByPost(UserView user);
 
+    void deleteById(Long id);
 }

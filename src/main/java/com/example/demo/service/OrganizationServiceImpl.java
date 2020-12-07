@@ -1,12 +1,16 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Organization;
 import com.example.demo.model.mapper.MapperFacade;
 import com.example.demo.dao.organization.OrganizationDao;
+import com.example.demo.view.OrganizationFilterView;
 import com.example.demo.view.OrganizationView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * {@inheritDoc}
@@ -39,9 +43,9 @@ public class OrganizationServiceImpl implements OrganizationService {
      */
     @Override
     @Transactional
-    public void updateByPost(OrganizationView organizationView) {
-        com.example.demo.model.Organization organization = mapperFacade.map(organizationView, com.example.demo.model.Organization.class);
-        dao.update(organization);
+    public void updateByPost(OrganizationView organizationView) throws Exception {
+        Organization organization = mapperFacade.map(organizationView, Organization.class);
+        dao.updatePost(organization);
     }
 
     /**
@@ -50,22 +54,22 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Override
     @Transactional
     public void saveByPost(OrganizationView organizationView) {
-        com.example.demo.model.Organization organization = mapperFacade.map(organizationView, com.example.demo.model.Organization.class);
+        Organization organization = mapperFacade.map(organizationView, Organization.class);
         dao.save(organization);
     }
 
     @Override
-    public java.util.List<com.example.demo.view.OrganizationFilterView> listOrganization(com.example.demo.view.OrganizationFilterView organizationFilterView) {
-        java.util.List<com.example.demo.view.OrganizationFilterView> resultList = new java.util.ArrayList<>();
-        java.util.List<com.example.demo.model.Organization> orgList = dao.loadByFilter(organizationFilterView);
+    public List<OrganizationFilterView> listOrganization(OrganizationFilterView organizationFilterView) {
+        List<OrganizationFilterView> resultList = new ArrayList<>();
+        List<Organization> orgList = dao.loadByFilter(organizationFilterView);
         for (int i = 0; i < orgList.size(); i++) {
             resultList.add(getOrganizationView(orgList.get(i)));
         }
         return resultList;
     }
 
-    private com.example.demo.view.OrganizationFilterView getOrganizationView(com.example.demo.model.Organization organization) {
-        com.example.demo.view.OrganizationFilterView organizationView = mapperFacade.map(organization, com.example.demo.view.OrganizationFilterView.class);
+    private OrganizationFilterView getOrganizationView(Organization organization) {
+        OrganizationFilterView organizationView = mapperFacade.map(organization, OrganizationFilterView.class);
         //organizationView.setOrganizationView(mapperFacade.map(organization.getOrganization(), OrganizationView.class));
         return organizationView;
     }

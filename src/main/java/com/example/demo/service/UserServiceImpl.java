@@ -1,12 +1,17 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.user.UserDao;
+import com.example.demo.model.User;
 import com.example.demo.model.mapper.MapperFacade;
+import com.example.demo.view.UserFilterView;
+import com.example.demo.view.UserFilterViewOut;
 import com.example.demo.view.UserView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * {@inheritDoc}
@@ -34,30 +39,39 @@ public class UserServiceImpl implements UserService {
         return mapperFacade.map(dao.getUserById(id), UserView.class);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     @Transactional
-    public UserView listByFilter(String officeId, String firstName, String secondName, String middleName, String position, int docCode, int citizenshipCode) {
-        return null;
+    public List<UserFilterViewOut> listByFilter(UserFilterView user) {
+        List<UserFilterViewOut> resultList = new ArrayList<>();
+        List<User> orgList = dao.loadByFilter(user);
+        for (int i = 0; i < orgList.size(); i++) {
+            resultList.add(getUserView(orgList.get(i)));
+        }
+        return  resultList;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    @Transactional
-    public UserView updateByPost(Long id, int officeId, String firstName, String secondName, String middleName, String position, int phone, String docName, int docNumber, String docData, int citizenshipCode, boolean isIdentified) {
-        return null;
+    private UserFilterViewOut getUserView(User user) {
+        UserFilterViewOut userView = mapperFacade.map(user, UserFilterViewOut.class);
+        return userView;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     @Transactional
-    public UserView saveByPost(int officeId, String firstName, String secondName, String middleName, String position, int phone, int docCode, String docName, int docNumber, String docData, int citizenshipCode, boolean isIdentified) {
-        return null;
+    public void updateByPost(UserView userView) throws Exception {
+        //User user = mapperFacade.map(userView, User.class);
+        dao.updateByPost(userView);
+    }
+
+    @Override
+    @Transactional
+    public void saveByPost(UserView userView) {
+        User user = mapperFacade.map(userView, User.class);
+        dao.saveByPost(user);
+    }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        dao.deletebyId(id);
     }
 }

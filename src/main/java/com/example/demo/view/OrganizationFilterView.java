@@ -7,9 +7,10 @@ import javax.validation.constraints.NotNull;
 public class OrganizationFilterView {
     @NotNull
     private String name;
+
     private String inn;
+
     private Boolean isActive;
-    private Long id;
 
     public String getName() {
         return name;
@@ -33,13 +34,5 @@ public class OrganizationFilterView {
 
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 }

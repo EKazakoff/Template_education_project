@@ -1,23 +1,13 @@
 package com.example.demo.view;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-@Valid
-public class OfficeView {
-    private long id;
+public class OfficeFilterView {
     private String name;
-    private String address;
     private String phone;
     private Boolean isActive;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    @NotNull
+    private Long orgId; //обязательный параметр
 
     public String getName() {
         return name;
@@ -25,14 +15,6 @@ public class OfficeView {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getPhone() {
@@ -43,7 +25,7 @@ public class OfficeView {
         this.phone = phone;
     }
 
-    public Boolean isActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
@@ -51,7 +33,11 @@ public class OfficeView {
         isActive = active;
     }
 
-    public Boolean getActive() {
-        return isActive;
+    public Long getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 }

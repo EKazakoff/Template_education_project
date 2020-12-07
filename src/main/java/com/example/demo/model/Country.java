@@ -6,19 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-/**
- * Страна
- */
-
 @Entity(name = "Country")
 public class Country {
 
     @Id
     @GeneratedValue
     private Long id;
-
     private String name;
-    private Integer code;
+    private int code;
 
     public Long getId() {
         return id;
@@ -36,11 +31,11 @@ public class Country {
         this.name = name;
     }
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 }

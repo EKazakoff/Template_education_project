@@ -3,17 +3,13 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-/**
- * Документ
- */
 @Entity(name = "Document")
 public class Document {
 
     @Id
     private Long id;
-
     private String name;
-    private Integer code;
+    private int code;
 
     public Long getId() {
         return id;
@@ -31,11 +27,11 @@ public class Document {
         this.name = name;
     }
 
-    public Integer getCode() {
+    public int getCode() {
         return code;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(int code) {
         this.code = code;
     }
 }

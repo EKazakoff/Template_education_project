@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS User
     second_name      VARCHAR(50)  NOT NULL COMMENT 'Фамилия',
     middle_name      VARCHAR(50)           COMMENT 'Отчество',
     position         VARCHAR(50)  NOT NULL COMMENT 'Должность',
-    office_id        VARCHAR(20)  NOT NULL COMMENT 'Идентификатор офиса',
+    office_id        VARCHAR(20)  NOT NULL COMMENT 'Внешний ключ на офис',
     phone            VARCHAR(15)           COMMENT 'Номер телефона',
     citizenship_code INTEGER      NOT NULL COMMENT 'Внешний ключ на документ, содержащий код страны',
     is_identified    BOOLEAN               COMMENT 'Определён/не определён'
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS User_document
 (
     id               INTEGER               COMMENT 'Уникальный идентификатор',
     user_id          INTEGER      NOT NULL COMMENT 'Внешний ключ на пользователя ',
-    doc_code         INTEGER      NOT NULL COMMENT 'Ссылка на справочник',
+    doc_code         INTEGER      NOT NULL COMMENT 'Внешний ключ на справочник',
     doc_number       INTEGER      NOT NULL COMMENT 'Номер документа',
     doc_data         VARCHAR(512) NOT NULL COMMENT 'Данные документа'
 );
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Office
 (
     id               INTEGER               COMMENT 'Уникальный идентификатор' PRIMARY KEY AUTO_INCREMENT,
     name             VARCHAR(128) NOT NULL COMMENT 'Название офиса',
-    org_id           VARCHAR(20)  NOT NULL COMMENT 'идентификатор организации',
+    org_id           VARCHAR(20)  NOT NULL COMMENT 'Внешний ключ на организацию',
     address          VARCHAR(128) NOT NULL COMMENT 'Адрес офиса',
     phone            VARCHAR(15)           COMMENT 'Номер телефона',
     is_active        BOOLEAN               COMMENT 'Действующий/не действующий'
