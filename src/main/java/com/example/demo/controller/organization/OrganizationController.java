@@ -23,7 +23,7 @@ public class OrganizationController {
         this.organizationService = organizationService;
     }
 
-    @GetMapping("/list/{id}")
+    @GetMapping("/{id}")
     public DataView getOrganization(@PathVariable Long id) {
         return new DataView(organizationService.getById(id));
     }

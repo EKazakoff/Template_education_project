@@ -70,4 +70,5 @@ public class Office {
     public void setActive(Boolean active) {
         isActive = active;
     }
+
 }

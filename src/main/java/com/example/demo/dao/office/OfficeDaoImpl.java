@@ -41,6 +41,7 @@ public class OfficeDaoImpl implements OfficeDao {
         officeEntity.setActive(office.isActive() != null ? office.isActive() : officeEntity.getActive());
         officeEntity.setAddress(office.getAddress() != null ? office.getAddress() : officeEntity.getAddress());
         officeEntity.setName(office.getName() != null ? office.getName() : officeEntity.getAddress());
+        //если значение не введено или неверное, показать пользователю что он сделал не так
         //officeEntity.setOrgId(office.getOrgId() != null ? office.getOrgId() : officeEntity.getOrgId());
         officeEntity.setPhone(office.getPhone() != null ? office.getPhone() : officeEntity.getPhone());
     }
@@ -69,9 +70,11 @@ public class OfficeDaoImpl implements OfficeDao {
         if (office.getName() != null) {
             predicates.add(builder.like(officeRoot.get("name"), "%" + office.getName() + "%"));
         }
+
         if (office.getOrgId() != null) {
             predicates.add(builder.equal(officeRoot.get("organization").get("id"), office.getOrgId()));
         }
+
         if (office.getPhone() != null) {
             predicates.add(builder.equal(officeRoot.get("phone"), office.getPhone()));
         }
@@ -81,7 +84,6 @@ public class OfficeDaoImpl implements OfficeDao {
         }
 
         criteria.where(predicates.toArray(new Predicate[]{}));
-
         return em.createQuery(criteria).getResultList();
     }
 }

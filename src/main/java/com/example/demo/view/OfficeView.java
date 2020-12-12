@@ -5,17 +5,17 @@ import javax.validation.constraints.NotNull;
 
 @Valid
 public class OfficeView {
-    private long id;
+    private Long id;
     private String name;
     private String address;
     private String phone;
     private Boolean isActive;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,4 +54,5 @@ public class OfficeView {
     public Boolean getActive() {
         return isActive;
     }
+
 }

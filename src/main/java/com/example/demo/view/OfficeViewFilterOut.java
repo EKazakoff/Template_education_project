@@ -4,7 +4,6 @@ import javax.validation.constraints.NotNull;
 
 public class OfficeViewFilterOut {
     private String name;
-
     private Boolean isActive;
 
     @NotNull

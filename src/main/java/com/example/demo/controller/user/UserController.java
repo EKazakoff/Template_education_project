@@ -22,15 +22,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/list/{id}")
+    @GetMapping("/{id}")
     public UserView getUser(@PathVariable Long id) {
         return userService.getById(id);
-    }
-
-
-    @GetMapping("/delete/{id}")
-    public void delOffice(@PathVariable Long id) {
-        userService.deleteById(id);
     }
 
     @PostMapping("/update")

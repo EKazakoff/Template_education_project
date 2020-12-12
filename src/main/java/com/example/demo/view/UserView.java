@@ -2,22 +2,22 @@ package com.example.demo.view;
 
 public class UserView {
 
-    private int id;
+    private Long id;
     private String firstName;
     private String secondName;
     private String middleName;
     private String position;
-    private String officeId;
+    private int officeId;
     private String phone;
     private DocView userDoc;
     private CountryView userCountry;
     private boolean isIdentified;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +53,11 @@ public class UserView {
         this.position = position;
     }
 
-    public String getOfficeId() {
+    public int getOfficeId() {
         return officeId;
     }
 
-    public void setOfficeId(String officeId) {
+    public void setOfficeId(int officeId) {
         this.officeId = officeId;
     }
 

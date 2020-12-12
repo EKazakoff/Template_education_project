@@ -29,14 +29,9 @@ public class OfficeController {
         this.officeService = officeService;
     }
 
-    @GetMapping("/list/{id}")
+    @GetMapping("/{id}")
     public OfficeView getOffice(@PathVariable Long id) throws Exception {
         return officeService.getById(id);
-    }
-
-    @GetMapping("/delete/{id}")
-    public void delOffice(@PathVariable Long id) {
-        officeService.deleteById(id);
     }
 
     @PostMapping("/update")
