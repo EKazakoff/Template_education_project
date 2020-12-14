@@ -29,20 +29,21 @@ public class UserController {
 
     @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public void updateOffice(@RequestBody @Valid UserView userView) throws Exception {
+    public ResultView updateOffice(@RequestBody @Valid UserView userView) throws Exception {
         userService.updateByPost(userView);
+        return new ResultView("success");
     }
 
     @PostMapping("/save")
-    public void saveOffice(@RequestBody @Valid UserView office) {
+    public ResultView saveOffice(@RequestBody @Valid UserView office) {
         userService.saveByPost(office);
+        return new ResultView("success");
     }
 
     @PostMapping("/list")
     public DataView listOffice(@RequestBody @Valid UserFilterView user) {
         return new DataView(userService.listByFilter(user));
     }
-
 }
 
 

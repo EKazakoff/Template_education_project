@@ -7,7 +7,7 @@ public class OfficeFilterView {
     private String phone;
     private Boolean isActive;
     @NotNull
-    private Long orgId; //обязательный параметр
+    private Long orgId;
 
     public String getName() {
         return name;

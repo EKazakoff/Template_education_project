@@ -1,7 +1,5 @@
 package com.example.demo.view;
 
-import javax.validation.constraints.NotNull;
-
 public class UserFilterViewOut {
     private Long id;
     private String firstName;

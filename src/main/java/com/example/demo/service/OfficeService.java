@@ -13,8 +13,6 @@ public interface OfficeService {
 
     public void updateByPost(OfficeView office);
 
-    void deleteById(Long id);
-
     void saveOffice(OfficeView office);
 
     List<OfficeViewFilterOut> listOffice(@Valid OfficeFilterView office);

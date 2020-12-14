@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.dao.office.OfficeDao;
 import com.example.demo.model.Office;
@@ -18,7 +18,7 @@ import java.util.List;
  * {@inheritDoc}
  */
 @Service
-public class OfficeServiceImpl implements OfficeService {
+public class OfficeServiceImpl implements com.example.demo.service.OfficeService {
     private final OfficeDao dao;
     private final MapperFacade mapperFacade;
 
@@ -50,11 +50,6 @@ public class OfficeServiceImpl implements OfficeService {
         dao.update(office);
     }
 
-    @Override
-    @Transactional
-    public void deleteById(Long id) {
-        dao.deletebyId(id);
-    }
 
     @Override
     @Transactional
@@ -75,13 +70,11 @@ public class OfficeServiceImpl implements OfficeService {
 
     private OfficeViewFilterOut getOfficeFilterView(Office office) {
         OfficeViewFilterOut officeView = mapperFacade.map(office, OfficeViewFilterOut.class);
-        //officeView.setOrganizationView(mapperFacade.map(office.getOrganization(), OrganizationView.class));
         return officeView;
     }
 
     private OfficeView getOfficeView(Office office) {
         OfficeView officeView = mapperFacade.map(office, OfficeView.class);
-        //officeView.setOrganizationView(mapperFacade.map(office.getOrganization(), OrganizationView.class));
         return officeView;
     }
 }

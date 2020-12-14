@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS User
     second_name      VARCHAR(50)  NOT NULL COMMENT 'Фамилия',
     middle_name      VARCHAR(50)           COMMENT 'Отчество',
     position         VARCHAR(50)  NOT NULL COMMENT 'Должность',
-    office_id        VARCHAR(20)  NOT NULL COMMENT 'Внешний ключ на офис',
+    office_id        INTEGER               COMMENT 'Внешний ключ на офис',
     phone            VARCHAR(15)           COMMENT 'Номер телефона',
-    citizenship_code INTEGER      NOT NULL COMMENT 'Внешний ключ на документ, содержащий код страны',
+    citizenship_code INTEGER               COMMENT 'Внешний ключ на документ, содержащий код страны',
     is_identified    BOOLEAN               COMMENT 'Определён/не определён'
 );
 COMMENT ON TABLE User IS 'Пользователь';

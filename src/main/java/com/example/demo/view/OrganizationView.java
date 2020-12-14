@@ -9,7 +9,7 @@ public class OrganizationView {
     private String kpp;
     private String address;
     private String phone;
-    private boolean isActive;
+    private Boolean isActive;
 
     public int getId() {
         return id;
@@ -67,12 +67,11 @@ public class OrganizationView {
         this.phone = phone;
     }
 
-    public boolean isActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
-
 }

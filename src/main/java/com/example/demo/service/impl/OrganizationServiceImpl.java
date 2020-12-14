@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.model.Organization;
 import com.example.demo.model.mapper.MapperFacade;
@@ -16,7 +16,7 @@ import java.util.List;
  * {@inheritDoc}
  */
 @Service
-public class OrganizationServiceImpl implements OrganizationService {
+public class OrganizationServiceImpl implements com.example.demo.service.OrganizationService {
     private final OrganizationDao dao;
     private final MapperFacade mapperFacade;
 

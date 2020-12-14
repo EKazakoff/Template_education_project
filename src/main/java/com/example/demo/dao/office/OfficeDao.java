@@ -12,8 +12,6 @@ public interface OfficeDao {
 
     void update(OfficeView office);
 
-    void deletebyId(Long id);
-
     void save(OfficeView office);
 
     List<Office> list(@Valid OfficeFilterView office);

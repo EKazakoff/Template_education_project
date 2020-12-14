@@ -1,6 +1,5 @@
 package com.example.demo.dao.user;
 
-import com.example.demo.model.Organization;
 import com.example.demo.model.User;
 import com.example.demo.view.UserFilterView;
 import com.example.demo.view.UserView;

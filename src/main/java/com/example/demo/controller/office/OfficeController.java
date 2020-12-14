@@ -4,6 +4,7 @@ import com.example.demo.service.OfficeService;
 import com.example.demo.view.OfficeFilterView;
 import com.example.demo.view.OfficeView;
 import com.example.demo.view.OfficeViewFilterOut;
+import com.example.demo.view.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,13 +37,15 @@ public class OfficeController {
 
     @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public void updateOffice(@RequestBody @Valid OfficeView office) {
+    public ResultView updateOffice(@RequestBody @Valid OfficeView office) {
         officeService.updateByPost(office);
+        return new ResultView("success");
     }
 
     @PostMapping("/save")
-    public void saveOffice(@RequestBody @Valid OfficeView office) {
+    public ResultView saveOffice(@RequestBody @Valid OfficeView office) {
         officeService.saveOffice(office);
+        return new ResultView("success");
     }
 
     @PostMapping("/list")
@@ -50,6 +53,7 @@ public class OfficeController {
         return officeService.listOffice(office);
     }
 }
+
 
 
 

@@ -1,10 +1,7 @@
 package com.example.demo.dao.organization;
 
-import com.example.demo.model.Office;
 import com.example.demo.model.Organization;
-import com.example.demo.view.OfficeView;
 import com.example.demo.view.OrganizationFilterView;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -98,7 +95,7 @@ public class OrganizationDaoImpl implements OrganizationDao {
         if (orgEntity == null) {
             throw new Exception("Can't find organization");
         }
-        orgEntity.setActive(organization.isActive() != null ? organization.isActive() : orgEntity.isActive());
+        orgEntity.setIsActive(organization.getIsActive() != null ? organization.getIsActive() : orgEntity.getIsActive());
 
         orgEntity.setAddress(organization.getAddress() != null ? organization.getAddress() : orgEntity.getAddress());
 
