@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public UserView getById(long id);
+    public com.example.demo.view.UserViewOut getById(long id);
 
     public List<UserFilterViewOut> listByFilter(UserFilterView user);
 

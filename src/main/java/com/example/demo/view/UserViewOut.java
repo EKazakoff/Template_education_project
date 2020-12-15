@@ -1,31 +1,18 @@
 package com.example.demo.view;
 
-import javax.validation.constraints.NotNull;
-
-public class UserView {
+public class UserViewOut {
 
     private Long id;
-
-    @NotNull
     private String firstName;
-
-    @NotNull
     private String secondName;
-
     private String middleName;
-
-    @NotNull
     private String position;
-
-    @NotNull
-    private int officeId;
-
     private String phone;
-
-    private DocView userDoc;
-
-    private CountryView userCountry;
-
+    private String docName;
+    private Integer docNumber;
+    private String  docDate;
+    private String citizenshipName;
+    private Integer citizenshipCode;
     private boolean isIdentified;
 
     public Long getId() {
@@ -68,36 +55,12 @@ public class UserView {
         this.position = position;
     }
 
-    public int getOfficeId() {
-        return officeId;
-    }
-
-    public void setOfficeId(int officeId) {
-        this.officeId = officeId;
-    }
-
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public DocView getUserDoc() {
-        return userDoc;
-    }
-
-    public void setUserDoc(DocView userDoc) {
-        this.userDoc = userDoc;
-    }
-
-    public CountryView getUserCountry() {
-        return userCountry;
-    }
-
-    public void setUserCountry(CountryView userCountry) {
-        this.userCountry = userCountry;
     }
 
     public boolean isIdentified() {
@@ -107,4 +70,45 @@ public class UserView {
     public void setIdentified(boolean identified) {
         isIdentified = identified;
     }
+
+    public String getDocName() {
+        return docName;
+    }
+
+    public void setDocName(String docName) {
+        this.docName = docName;
+    }
+
+    public Integer getDocNumber() {
+        return docNumber;
+    }
+
+    public void setDocNumber(Integer docNumber) {
+        this.docNumber = docNumber;
+    }
+
+    public String getDocDate() {
+        return docDate;
+    }
+
+    public void setDocDate(String docDate) {
+        this.docDate = docDate;
+    }
+
+    public String getCitizenshipName() {
+        return citizenshipName;
+    }
+
+    public void setCitizenshipName(String citizenshipName) {
+        this.citizenshipName = citizenshipName;
+    }
+
+    public Integer getCitizenshipCode() {
+        return citizenshipCode;
+    }
+
+    public void setCitizenshipCode(Integer citizenshipCode) {
+        this.citizenshipCode = citizenshipCode;
+    }
 }
+

@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.GeneratedValue;
 
 /**
  * Пользователь
@@ -13,6 +14,7 @@ import javax.persistence.OneToOne;
 @Entity(name = "User")
 public class User {
     @Id
+    @GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String secondName;

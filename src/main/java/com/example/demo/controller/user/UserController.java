@@ -1,14 +1,22 @@
 package com.example.demo.controller.user;
 
 import com.example.demo.service.UserService;
-import com.example.demo.view.*;
+import com.example.demo.view.DataView;
+import com.example.demo.view.ResultView;
+import com.example.demo.view.UserFilterView;
+import com.example.demo.view.UserView;
+import com.example.demo.view.UserViewOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-
-import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -23,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public UserView getUser(@PathVariable Long id) {
+    public UserViewOut getUser(@PathVariable Long id) {
         return userService.getById(id);
     }
 

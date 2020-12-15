@@ -11,11 +11,11 @@ INSERT INTO Document (id, name, code) VALUES (3, 'заграничный пас�
 INSERT INTO Country (id, name, code) VALUES (7, 'Российская Федерация', 643);
 
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, citizenship_code, is_identified)
-VALUES (1, 'Максим', 'Умнов', NULL, 'программист', 12, NULL, 7, NULL);
+VALUES (1, 'Максим', 'Умнов', 'Сергеевич', 'программист', 12, '1234567', 7, NULL);
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, citizenship_code, is_identified)
-VALUES (2, 'Сергей', 'Хитров', NULL, 'продавец', 12, NULL, 7, NULL);
+VALUES (2, 'Сергей', 'Хитров', 'Иванович', 'продавец', 12, '7654321', 7, NULL);
 INSERT INTO User (id, first_name, second_name, middle_name, position, office_id, phone, citizenship_code, is_identified)
-VALUES (3, 'Наталья', 'Шустрова', NULL, 'бухгалтер', 12, NULL, 7, NULL);
+VALUES (3, 'Наталья', 'Шустрова', 'Борисовна', 'бухгалтер', 12, '3222331', 7, NULL);
 
 INSERT INTO User_document (id, user_id, doc_code, doc_number, doc_data) VALUES (1, 3, 1, 975, 'Выдан ОВД');
 INSERT INTO User_document (id, user_id, doc_code, doc_number, doc_data) VALUES (2, 2, 2, 597, 'Выдан ГАИ');

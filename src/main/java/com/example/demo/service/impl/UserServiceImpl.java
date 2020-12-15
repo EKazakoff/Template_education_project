@@ -6,6 +6,7 @@ import com.example.demo.model.mapper.MapperFacade;
 import com.example.demo.view.UserFilterView;
 import com.example.demo.view.UserFilterViewOut;
 import com.example.demo.view.UserView;
+import com.example.demo.view.UserViewOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,11 +33,23 @@ public class UserServiceImpl implements com.example.demo.service.UserService {
 
     /**
      * {@inheritDoc}
+     * @return
      */
     @Override
     @Transactional
-    public UserView getById(long id) {
-        return mapperFacade.map(dao.getUserById(id), UserView.class);
+    public com.example.demo.view.UserViewOut getById(long id) {
+        User user = dao.getUserById(id);
+        return mapUserToView(user);
+    }
+
+    private UserViewOut mapUserToView(User user) {
+        UserViewOut userViewOut = mapperFacade.map(user, UserViewOut.class);
+        userViewOut.setCitizenshipCode(user.getCountry().getCode());
+        userViewOut.setCitizenshipName(user.getCountry().getName());
+        userViewOut.setDocDate(user.getUserDoc().getDocData());
+        userViewOut.setDocName(user.getUserDoc().getDocument().getName());
+        userViewOut.setDocNumber(user.getUserDoc().getDocNumber());
+        return  userViewOut;
     }
 
     @Override
