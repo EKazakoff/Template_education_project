@@ -1,13 +1,25 @@
 package com.example.demo.view;
+import javax.validation.constraints.NotNull;
 
 public class OrganizationView {
 
     private int id;
+
+    @NotNull
     private String name;
+
+    @NotNull
     private String fullName;
+
+    @NotNull
     private String inn;
+
+    @NotNull
     private String kpp;
+
+    @NotNull
     private String address;
+
     private String phone;
     private Boolean isActive;
 

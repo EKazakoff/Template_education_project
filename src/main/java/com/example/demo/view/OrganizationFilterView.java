@@ -5,10 +5,10 @@ import javax.validation.constraints.NotNull;
 
 @Valid
 public class OrganizationFilterView {
+    private Integer id;
+
     @NotNull
     private String name;
-
-    private String inn;
 
     private Boolean isActive;
 
@@ -20,12 +20,12 @@ public class OrganizationFilterView {
         this.name = name;
     }
 
-    public String getInn() {
-        return inn;
+    public Integer getId() {
+        return id;
     }
 
-    public void setInn(String inn) {
-        this.inn = inn;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getIsActive() {

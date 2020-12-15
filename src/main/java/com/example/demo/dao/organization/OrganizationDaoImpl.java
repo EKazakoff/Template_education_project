@@ -44,13 +44,6 @@ public class OrganizationDaoImpl implements OrganizationDao {
         return em.find(Organization.class, id);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Organization loadByName(String name) {
-        return null;
-    }
 
     /**
      * {@inheritDoc}
@@ -69,8 +62,8 @@ public class OrganizationDaoImpl implements OrganizationDao {
 
         List<Predicate> predicates = new ArrayList<Predicate>();
 
-        if (organizationFilterView.getInn() != null) {
-            predicates.add(builder.equal(orgRoot.get("inn"),  organizationFilterView.getInn()));
+        if (organizationFilterView.getId() != null) {
+            predicates.add(builder.equal(orgRoot.get("id"), organizationFilterView.getId()));
         }
         if (organizationFilterView.getIsActive() != null) {
             predicates.add(builder.equal(orgRoot.get("isActive"), organizationFilterView.getIsActive()));

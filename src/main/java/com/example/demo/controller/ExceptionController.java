@@ -41,7 +41,7 @@ public class ExceptionController {
     public ResponseEntity<ErrorMsg> methodArgumentNotValidException(final MethodArgumentNotValidException e) {
         StringBuilder sb = new StringBuilder();
         e.getBindingResult().getFieldErrors().forEach(fieldError -> {
-            sb.append(fieldError.getRejectedValue() + ": " + fieldError.getField());
+            sb.append(fieldError.getField() + ": " + fieldError.getRejectedValue() + " ");
         });
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new ErrorMsg("Validation exception " + sb.toString()));
     }

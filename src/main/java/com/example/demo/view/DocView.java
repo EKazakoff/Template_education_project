@@ -3,6 +3,7 @@ package com.example.demo.view;
 public class DocView {
 
     private String name;
+
     private int code;
 
     public String getName() {

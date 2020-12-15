@@ -1,24 +1,14 @@
 package com.example.demo.view;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @Valid
-public class OfficeView {
+public class OfficeViewOut {
     private long id;
-
-    @NotNull
     private String name;
-
-    @NotNull
     private String address;
-
     private String phone;
-
     private Boolean isActive;
-
-    @NotNull
-    private long orgId;
 
     public long getId() {
         return id;
@@ -64,11 +54,4 @@ public class OfficeView {
         return isActive;
     }
 
-    public long getOrgId() {
-        return orgId;
-    }
-
-    public void setOrgId(long orgId) {
-        this.orgId = orgId;
-    }
 }

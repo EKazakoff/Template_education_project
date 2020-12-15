@@ -33,13 +33,13 @@ public class OrganizationController {
     }
 
     @PostMapping("/update")
-    public ResultView updateOrganization(@RequestBody OrganizationView organizationView) throws Exception {
+    public ResultView updateOrganization(@RequestBody @Valid OrganizationView organizationView) throws Exception {
         organizationService.updateByPost(organizationView);
         return new ResultView("success");
     }
 
     @PostMapping("/save")
-    public ResultView saveOrganization(@RequestBody OrganizationView organizationView) {
+    public ResultView saveOrganization(@RequestBody @Valid OrganizationView organizationView) {
         organizationService.saveByPost(organizationView);
         return new ResultView("success");
     }

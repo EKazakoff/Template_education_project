@@ -113,4 +113,6 @@ public class User {
         isIdentified = identified;
     }
 
+    public void getMiddleName(String s) {
+    }
 }

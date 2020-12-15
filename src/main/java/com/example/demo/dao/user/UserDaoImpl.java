@@ -49,16 +49,16 @@ public class UserDaoImpl implements UserDao {
             predicates.add(builder.like(userRoot.get("middleName"), "%" + user.getMiddleName() +  "%"));
         }
         if (user.getPosition() != null) {
-            predicates.add(builder.like(userRoot.get("position"), "%" + user.getPosition() +  "%"));
+            predicates.add(builder.equal(userRoot.get("position"), user.getPosition()));
         }
         if (user.getOfficeId() != null) {
-            predicates.add(builder.like(userRoot.get("officeId"), "%" + user.getOfficeId() +  "%"));
+            predicates.add(builder.equal(userRoot.get("office").get("id"), user.getOfficeId()));
         }
         if (user.getDocCode() != null) {
-            predicates.add(builder.like(userRoot.get("doceCode"), "%" + user.getDocCode() +  "%"));
+            predicates.add(builder.equal(userRoot.get("docCode"),  user.getDocCode() ));
         }
         if (user.getCitizenshipCode() != null) {
-            predicates.add(builder.like(userRoot.get("citizenshipCode"), "%" + user.getCitizenshipCode() +  "%"));
+            predicates.add(builder.equal(userRoot.get("citizenshipCode"), user.getCitizenshipCode()));
         }
 
         criteria.where(predicates.toArray(new Predicate[]{}));

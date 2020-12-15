@@ -6,6 +6,7 @@ import com.example.demo.model.mapper.MapperFacade;
 import com.example.demo.view.OfficeFilterView;
 import com.example.demo.view.OfficeView;
 import com.example.demo.view.OfficeViewFilterOut;
+import com.example.demo.view.OfficeViewOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,7 @@ public class OfficeServiceImpl implements com.example.demo.service.OfficeService
      */
     @Override
     @Transactional
-    public OfficeView getById(long id) {
+    public OfficeViewOut getById(long id) {
         return getOfficeView(dao.loadById(id));
     }
 
@@ -73,8 +74,8 @@ public class OfficeServiceImpl implements com.example.demo.service.OfficeService
         return officeView;
     }
 
-    private OfficeView getOfficeView(Office office) {
-        OfficeView officeView = mapperFacade.map(office, OfficeView.class);
+    private OfficeViewOut getOfficeView(Office office) {
+        OfficeViewOut officeView = mapperFacade.map(office, OfficeViewOut.class);
         return officeView;
     }
 }

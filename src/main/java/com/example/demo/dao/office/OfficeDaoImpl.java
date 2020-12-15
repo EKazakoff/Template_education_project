@@ -76,7 +76,6 @@ public class OfficeDaoImpl implements OfficeDao {
         if (office.getPhone() != null) {
             predicates.add(builder.equal(officeRoot.get("phone"), office.getPhone()));
         }
-
         if (office.getActive() != null) {
             predicates.add(builder.equal(officeRoot.get("isActive"), office.getActive()));
         }
