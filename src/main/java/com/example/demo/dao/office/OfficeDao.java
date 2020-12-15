@@ -1,8 +1,8 @@
 package com.example.demo.dao.office;
 
 import com.example.demo.model.Office;
-import com.example.demo.view.OfficeFilterView;
-import com.example.demo.view.OfficeView;
+import com.example.demo.view.office.OfficeFilterView;
+import com.example.demo.view.office.OfficeView;
 
 import javax.validation.Valid;
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.example.demo.dao.user;
 
 import com.example.demo.model.User;
-import com.example.demo.view.UserFilterView;
-import com.example.demo.view.UserView;
+import com.example.demo.view.user.UserFilterView;
+import com.example.demo.view.user.UserView;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

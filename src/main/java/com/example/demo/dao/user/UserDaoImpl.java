@@ -1,8 +1,8 @@
 package com.example.demo.dao.user;
 
 import com.example.demo.model.User;
-import com.example.demo.view.UserFilterView;
-import com.example.demo.view.UserView;
+import com.example.demo.view.user.UserFilterView;
+import com.example.demo.view.user.UserView;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -84,8 +84,11 @@ public class UserDaoImpl implements UserDao {
             throw new Exception("Can't find organization");
         }
         orgEntity.setFirstName(userView.getFirstName() != null ? userView.getFirstName() : orgEntity.getFirstName());
+        orgEntity.setSecondName(userView.getSecondName() != null ? userView.getSecondName() : orgEntity.getSecondName());
+        orgEntity.setMiddleName(userView.getMiddleName() != null ? userView.getMiddleName() : orgEntity.getMiddleName());
+        orgEntity.setId(userView.getId() != null ? userView.getId() : orgEntity.getId());
+        orgEntity.setPosition(userView.getPosition() != null ? userView.getPosition() : orgEntity.getPosition());
 
-        //TODO: добавить все остальные поля
     }
 
     @Override

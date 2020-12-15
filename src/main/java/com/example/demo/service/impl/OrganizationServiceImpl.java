@@ -3,8 +3,8 @@ package com.example.demo.service.impl;
 import com.example.demo.model.Organization;
 import com.example.demo.model.mapper.MapperFacade;
 import com.example.demo.dao.organization.OrganizationDao;
-import com.example.demo.view.OrganizationFilterView;
-import com.example.demo.view.OrganizationView;
+import com.example.demo.view.organization.OrganizationFilterView;
+import com.example.demo.view.organization.OrganizationView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.view.user;
 
 public class UserFilterViewOut {
     private Long id;

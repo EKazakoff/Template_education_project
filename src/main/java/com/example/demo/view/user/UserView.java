@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.view.user;
 
 import javax.validation.constraints.NotNull;
 
@@ -22,9 +22,9 @@ public class UserView {
 
     private String phone;
 
-    private DocView userDoc;
+    private com.example.demo.view.DocView userDoc;
 
-    private CountryView userCountry;
+    private com.example.demo.view.CountryView userCountry;
 
     private boolean isIdentified;
 
@@ -84,19 +84,19 @@ public class UserView {
         this.phone = phone;
     }
 
-    public DocView getUserDoc() {
+    public com.example.demo.view.DocView getUserDoc() {
         return userDoc;
     }
 
-    public void setUserDoc(DocView userDoc) {
+    public void setUserDoc(com.example.demo.view.DocView userDoc) {
         this.userDoc = userDoc;
     }
 
-    public CountryView getUserCountry() {
+    public com.example.demo.view.CountryView getUserCountry() {
         return userCountry;
     }
 
-    public void setUserCountry(CountryView userCountry) {
+    public void setUserCountry(com.example.demo.view.CountryView userCountry) {
         this.userCountry = userCountry;
     }
 

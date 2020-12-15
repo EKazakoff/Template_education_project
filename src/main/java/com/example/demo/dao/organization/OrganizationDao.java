@@ -1,7 +1,7 @@
 package com.example.demo.dao.organization;
 
 import com.example.demo.model.Organization;
-import com.example.demo.view.OrganizationFilterView;
+import com.example.demo.view.organization.OrganizationFilterView;
 
 import java.util.List;
 

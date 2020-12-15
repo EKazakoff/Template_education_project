@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.view.organization;
 import javax.validation.constraints.NotNull;
 
 public class OrganizationView {

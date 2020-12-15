@@ -1,4 +1,4 @@
-package com.example.demo.view;
+package com.example.demo.view.user;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,7 +11,7 @@ public class UserFilterView {
     private String citizenshipCode;
     private Boolean isActive;
     @NotNull
-    private Long officeId; //обязательный параметр
+    private Long officeId;
 
     public String getFirstName() {
         return firstName;

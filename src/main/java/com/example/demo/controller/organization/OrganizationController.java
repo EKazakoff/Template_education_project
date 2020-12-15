@@ -2,8 +2,8 @@ package com.example.demo.controller.organization;
 
 import com.example.demo.service.OrganizationService;
 import com.example.demo.view.DataView;
-import com.example.demo.view.OrganizationFilterView;
-import com.example.demo.view.OrganizationView;
+import com.example.demo.view.organization.OrganizationFilterView;
+import com.example.demo.view.organization.OrganizationView;
 import com.example.demo.view.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.view.OfficeFilterView;
-import com.example.demo.view.OfficeView;
-import com.example.demo.view.OfficeViewFilterOut;
-import com.example.demo.view.OfficeViewOut;
+import com.example.demo.view.office.OfficeFilterView;
+import com.example.demo.view.office.OfficeView;
+import com.example.demo.view.office.OfficeViewFilterOut;
+import com.example.demo.view.office.OfficeViewOut;
 
 import javax.validation.Valid;
 import java.util.List;

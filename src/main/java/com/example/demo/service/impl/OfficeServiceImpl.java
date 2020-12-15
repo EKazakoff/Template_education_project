@@ -3,10 +3,10 @@ package com.example.demo.service.impl;
 import com.example.demo.dao.office.OfficeDao;
 import com.example.demo.model.Office;
 import com.example.demo.model.mapper.MapperFacade;
-import com.example.demo.view.OfficeFilterView;
-import com.example.demo.view.OfficeView;
-import com.example.demo.view.OfficeViewFilterOut;
-import com.example.demo.view.OfficeViewOut;
+import com.example.demo.view.office.OfficeFilterView;
+import com.example.demo.view.office.OfficeView;
+import com.example.demo.view.office.OfficeViewFilterOut;
+import com.example.demo.view.office.OfficeViewOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

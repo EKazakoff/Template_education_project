@@ -28,25 +28,25 @@ public class OfficeController {
     }
 
     @GetMapping("/{id}")
-    public OfficeViewOut getOffice(@PathVariable Long id) throws Exception {
+    public com.example.demo.view.office.OfficeViewOut getOffice(@PathVariable Long id) throws Exception {
         return officeService.getById(id);
     }
 
     @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public ResultView updateOffice(@RequestBody @Valid OfficeView office) {
+    public ResultView updateOffice(@RequestBody @Valid com.example.demo.view.office.OfficeView office) {
         officeService.updateByPost(office);
         return new ResultView("success");
     }
 
     @PostMapping("/save")
-    public ResultView saveOffice(@RequestBody @Valid OfficeView office) {
+    public ResultView saveOffice(@RequestBody @Valid com.example.demo.view.office.OfficeView office) {
         officeService.saveOffice(office);
         return new ResultView("success");
     }
 
     @PostMapping("/list")
-    public List<OfficeViewFilterOut> listOffice(@RequestBody @Valid OfficeFilterView office) {
+    public List<com.example.demo.view.office.OfficeViewFilterOut> listOffice(@RequestBody @Valid com.example.demo.view.office.OfficeFilterView office) {
         return officeService.listOffice(office);
     }
 }

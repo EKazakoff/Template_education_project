@@ -3,10 +3,10 @@ package com.example.demo.service.impl;
 import com.example.demo.dao.user.UserDao;
 import com.example.demo.model.User;
 import com.example.demo.model.mapper.MapperFacade;
-import com.example.demo.view.UserFilterView;
-import com.example.demo.view.UserFilterViewOut;
-import com.example.demo.view.UserView;
-import com.example.demo.view.UserViewOut;
+import com.example.demo.view.user.UserFilterView;
+import com.example.demo.view.user.UserFilterViewOut;
+import com.example.demo.view.user.UserView;
+import com.example.demo.view.user.UserViewOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements com.example.demo.service.UserService {
      */
     @Override
     @Transactional
-    public com.example.demo.view.UserViewOut getById(long id) {
+    public com.example.demo.view.user.UserViewOut getById(long id) {
         User user = dao.getUserById(id);
         return mapUserToView(user);
     }

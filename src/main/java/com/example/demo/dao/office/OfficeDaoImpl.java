@@ -3,8 +3,8 @@ package com.example.demo.dao.office;
 import com.example.demo.dao.organization.OrganizationDao;
 import com.example.demo.model.Office;
 import com.example.demo.model.Organization;
-import com.example.demo.view.OfficeFilterView;
-import com.example.demo.view.OfficeView;
+import com.example.demo.view.office.OfficeFilterView;
+import com.example.demo.view.office.OfficeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

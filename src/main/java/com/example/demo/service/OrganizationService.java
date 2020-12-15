@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.view.OrganizationFilterView;
-import com.example.demo.view.OrganizationView;
+import com.example.demo.view.organization.OrganizationFilterView;
+import com.example.demo.view.organization.OrganizationView;
 
 import java.util.List;
 

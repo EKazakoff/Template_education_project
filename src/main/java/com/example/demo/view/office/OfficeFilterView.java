@@ -1,13 +1,13 @@
-package com.example.demo.view;
+package com.example.demo.view.office;
 
 import javax.validation.constraints.NotNull;
 
-public class OfficeViewFilterOut {
+public class OfficeFilterView {
     private String name;
+    private String phone;
     private Boolean isActive;
-
     @NotNull
-    private Long id;
+    private Long orgId;
 
     public String getName() {
         return name;
@@ -15,6 +15,14 @@ public class OfficeViewFilterOut {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Boolean getActive() {
@@ -25,11 +33,11 @@ public class OfficeViewFilterOut {
         isActive = active;
     }
 
-    public Long getId() {
-        return id;
+    public Long getOrgId() {
+        return orgId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setOrgId(Long orgId) {
+        this.orgId = orgId;
     }
 }
