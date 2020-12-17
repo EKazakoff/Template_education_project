@@ -1,13 +1,11 @@
 package com.example.demo.controller.organization;
 
 import com.example.demo.service.OrganizationService;
-import com.example.demo.view.DataView;
 import com.example.demo.view.organization.OrganizationFilterView;
 import com.example.demo.view.organization.OrganizationView;
 import com.example.demo.view.ResultView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +26,8 @@ public class OrganizationController {
     }
 
     @GetMapping("/{id}")
-    public DataView getOrganization(@PathVariable Long id) {
-        return new DataView(organizationService.getById(id));
+    public com.example.demo.view.organization.OrganizationView getOrganization(@org.springframework.web.bind.annotation.PathVariable Long id) {
+        return organizationService.getById(id);
     }
 
     @PostMapping("/update")
@@ -45,8 +43,8 @@ public class OrganizationController {
     }
 
     @PostMapping("/list")
-    public DataView listOffice(@RequestBody @Valid OrganizationFilterView organizationFilterView) {
-        return new DataView(organizationService.listOrganization(organizationFilterView));
+    public java.util.List<com.example.demo.view.organization.OrganizationFilterView> listOffice(@org.springframework.web.bind.annotation.RequestBody @javax.validation.Valid OrganizationFilterView organizationFilterView) {
+        return organizationService.listOrganization(organizationFilterView);
     }
 }
 

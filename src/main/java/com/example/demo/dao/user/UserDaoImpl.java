@@ -66,11 +66,7 @@ public class UserDaoImpl implements UserDao {
         return em.createQuery(criteria).getResultList();
     }
 
-    @Override
-    public void deletebyId(Long id) {
-        User userEntity = em.find(User.class, id);
-        em.remove(userEntity);
-    }
+
 
     @Override
     public void updateByPost(UserView userView) throws Exception {
@@ -88,7 +84,6 @@ public class UserDaoImpl implements UserDao {
         orgEntity.setMiddleName(userView.getMiddleName() != null ? userView.getMiddleName() : orgEntity.getMiddleName());
         orgEntity.setId(userView.getId() != null ? userView.getId() : orgEntity.getId());
         orgEntity.setPosition(userView.getPosition() != null ? userView.getPosition() : orgEntity.getPosition());
-
     }
 
     @Override

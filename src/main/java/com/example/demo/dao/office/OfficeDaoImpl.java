@@ -46,7 +46,6 @@ public class OfficeDaoImpl implements OfficeDao {
         officeEntity.setActive(office.isActive() != null ? office.isActive() : officeEntity.getActive());
         officeEntity.setAddress(office.getAddress() != null ? office.getAddress() : officeEntity.getAddress());
         officeEntity.setName(office.getName() != null ? office.getName() : officeEntity.getAddress());
-        //officeEntity.setOrgId(office.getOrgId() != null ? office.getOrgId() : officeEntity.getOrgId());
         officeEntity.setPhone(office.getPhone() != null ? office.getPhone() : officeEntity.getPhone());
     }
 

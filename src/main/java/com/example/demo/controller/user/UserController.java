@@ -1,7 +1,6 @@
 package com.example.demo.controller.user;
 
 import com.example.demo.service.UserService;
-import com.example.demo.view.DataView;
 import com.example.demo.view.ResultView;
 import com.example.demo.view.user.UserFilterView;
 import com.example.demo.view.user.UserView;
@@ -49,8 +48,8 @@ public class UserController {
     }
 
     @PostMapping("/list")
-    public DataView listOffice(@RequestBody @Valid UserFilterView user) {
-        return new DataView(userService.listByFilter(user));
+    public java.util.List<com.example.demo.view.user.UserFilterViewOut> listOffice(@org.springframework.web.bind.annotation.RequestBody @javax.validation.Valid UserFilterView user) {
+        return userService.listByFilter(user);
     }
 }
 

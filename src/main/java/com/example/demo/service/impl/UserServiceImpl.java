@@ -81,10 +81,4 @@ public class UserServiceImpl implements com.example.demo.service.UserService {
         User user = mapperFacade.map(userView, User.class);
         dao.saveByPost(user);
     }
-
-    @Override
-    @Transactional
-    public void deleteById(Long id) {
-        dao.deletebyId(id);
-    }
 }

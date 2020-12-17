@@ -14,8 +14,6 @@ public interface UserDao {
 
     List<User> loadByFilter(UserFilterView user);
 
-    void deletebyId(Long id);
-
     void updateByPost(UserView userView) throws Exception;
 
     void saveByPost(User user);

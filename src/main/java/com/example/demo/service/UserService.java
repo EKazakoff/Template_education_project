@@ -16,5 +16,4 @@ public interface UserService {
 
     public void saveByPost(UserView user);
 
-    void deleteById(Long id);
 }
