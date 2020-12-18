@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 /**
  * The type Office controller test.
@@ -89,21 +90,11 @@ class OfficeControllerTest {
      *
      * @throws Exception the exception
      */
-/*    @Test
+    @Test
     public void testListOffice() throws Exception {
-        mockMvc.perform(get("api/office/12")
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content("{\n" +
-                        "    \"data\": {\n" +
-                        "        \"id\": 12,\n" +
-                        "        \"name\": \"Западный\",\n" +
-                        "        \"address\": \"ул.Живописная, 19, Москва\",\n" +
-                        "        \"phone\": \"84957211234\",\n" +
-                        "        \"active\": true\n" +
-                        "    }\n" +
-                        "}").
-                andDo(MockMvcResultHandlers.print())
-                .andExpect(status().isOk()));
-    }*/
+        mockMvc.perform(get("/api/office/12")
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(status().isOk());
+    }
 }

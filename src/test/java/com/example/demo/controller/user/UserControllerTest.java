@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 
 /**
  * The type User controller test.
@@ -90,28 +91,12 @@ class UserControllerTest {
      *
      * @throws Exception the exception
      */
-/*    @Test
+    @Test
     public void testListUser() throws Exception {
-        mockMvc.perform(get("api/user/1")
+        mockMvc.perform(get("/api/user/1")
                 .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content("{\n" +
-                        "    \"data\": {\n" +
-                        "        \"id\": 1,\n" +
-                        "        \"firstName\": \"Максим\",\n" +
-                        "        \"secondName\": \"Умнов\",\n" +
-                        "        \"middleName\": \"Сергеевич\",\n" +
-                        "        \"position\": \"программист\",\n" +
-                        "        \"phone\": \"1234567\",\n" +
-                        "        \"docName\": \"заграничный паспорт\",\n" +
-                        "        \"docNumber\": 711,\n" +
-                        "        \"docDate\": \"Выдан спец. отделом ОВД\",\n" +
-                        "        \"citizenshipName\": \"Российская Федерация\",\n" +
-                        "        \"citizenshipCode\": 643,\n" +
-                        "        \"identified\": false\n" +
-                        "    }\n" +
-                        "}").
+                .accept(MediaType.APPLICATION_JSON)).
                 andDo(MockMvcResultHandlers.print())
-                .andExpect(status().isOk()));
-    }*/
+                .andExpect(status().isOk());
+    }
 }
