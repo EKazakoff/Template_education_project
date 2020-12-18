@@ -15,6 +15,9 @@ import javax.transaction.Transactional;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type Office controller test.
+ */
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @Transactional
@@ -22,9 +25,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OfficeControllerTest {
 
+    /**
+     * The Mock mvc.
+     */
     @Autowired
     MockMvc mockMvc;
 
+    /**
+     * Test get office.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetOffice() throws Exception {
         this.mockMvc.perform(post("/api/office/list")
@@ -36,6 +47,11 @@ class OfficeControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test update office.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testUpdateOffice() throws Exception {
         this.mockMvc.perform(post("/api/office/update")
@@ -50,6 +66,11 @@ class OfficeControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test save office.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testSaveOffice() throws Exception {
         this.mockMvc.perform(post("/api/office/save")
@@ -63,7 +84,12 @@ class OfficeControllerTest {
                 .andExpect(status().isOk());
     }
 
-/*   @Test
+    /**
+     * Test list office.
+     *
+     * @throws Exception the exception
+     */
+/*    @Test
     public void testListOffice() throws Exception {
         mockMvc.perform(get("api/office/12")
                 .contentType(MediaType.APPLICATION_JSON)

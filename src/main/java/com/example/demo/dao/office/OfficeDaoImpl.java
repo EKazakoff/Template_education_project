@@ -17,10 +17,18 @@ import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Office dao.
+ */
 @Repository
 public class OfficeDaoImpl implements OfficeDao {
     private final EntityManager em;
 
+    /**
+     * Instantiates a new Office dao.
+     *
+     * @param em the em
+     */
     @Autowired
     public OfficeDaoImpl(EntityManager em) {
         this.em = em;

@@ -22,6 +22,9 @@ public class OrganizationServiceImpl implements com.example.demo.service.Organiz
 
     /**
      * {@inheritDoc}
+     *
+     * @param dao          the dao
+     * @param mapperFacade the mapper facade
      */
     @Autowired
     public OrganizationServiceImpl(OrganizationDao dao, MapperFacade mapperFacade) {
@@ -70,7 +73,6 @@ public class OrganizationServiceImpl implements com.example.demo.service.Organiz
 
     private OrganizationFilterView getOrganizationView(Organization organization) {
         OrganizationFilterView organizationView = mapperFacade.map(organization, OrganizationFilterView.class);
-        //organizationView.setOrganizationView(mapperFacade.map(organization.getOrganization(), OrganizationView.class));
         return organizationView;
     }
 }

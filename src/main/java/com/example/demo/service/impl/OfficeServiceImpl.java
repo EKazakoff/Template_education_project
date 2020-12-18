@@ -25,6 +25,9 @@ public class OfficeServiceImpl implements com.example.demo.service.OfficeService
 
     /**
      * {@inheritDoc}
+     *
+     * @param dao          the dao
+     * @param mapperFacade the mapper facade
      */
     @Autowired
     public OfficeServiceImpl(OfficeDao dao, MapperFacade mapperFacade) {

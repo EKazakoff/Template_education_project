@@ -13,10 +13,18 @@ import javax.persistence.criteria.Root;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type User dao.
+ */
 @Repository
 public class UserDaoImpl implements UserDao {
     private final EntityManager em;
 
+    /**
+     * Instantiates a new User dao.
+     *
+     * @param em the em
+     */
     public UserDaoImpl(EntityManager em) {
         this.em = em;
     }

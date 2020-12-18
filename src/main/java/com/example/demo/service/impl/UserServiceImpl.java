@@ -71,7 +71,6 @@ public class UserServiceImpl implements com.example.demo.service.UserService {
     @Override
     @Transactional
     public void updateByPost(UserView userView) throws Exception {
-        //User user = mapperFacade.map(userView, User.class);
         dao.updateByPost(userView);
     }
 

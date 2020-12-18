@@ -15,6 +15,9 @@ import javax.transaction.Transactional;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type Organization controller test.
+ */
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @Transactional
@@ -22,9 +25,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class OrganizationControllerTest {
 
+    /**
+     * The Mock mvc.
+     */
     @Autowired
     MockMvc mockMvc;
 
+    /**
+     * Test get organization.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetOrganization() throws Exception {
         this.mockMvc.perform(post("/api/organization/list")
@@ -36,6 +47,11 @@ class OrganizationControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test update organization.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testUpdateOrganization() throws Exception {
         this.mockMvc.perform(post("/api/organization/update")
@@ -52,6 +68,11 @@ class OrganizationControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test save organization.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testSaveOrganization() throws Exception {
         this.mockMvc.perform(post("/api/organization/save")
@@ -68,6 +89,11 @@ class OrganizationControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test list organization.
+     *
+     * @throws Exception the exception
+     */
 /*    @Test
     public void testListOrganization() throws Exception {
         mockMvc.perform(get("api/organization/11")

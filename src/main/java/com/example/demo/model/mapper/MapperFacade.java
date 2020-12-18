@@ -3,23 +3,23 @@ package com.example.demo.model.mapper;
 import java.util.List;
 
 /**
- * Фасад для преобразования между моделями БД и фронта
+ * Facade for transformation between DB models and front-end
  */
 public interface MapperFacade {
 
     /**
-     * Преобразование sourceObject в экземпляр класса destinationClass
+     * Transformation of sourceObject to the an example of destinationClass
      *
-     * @param sourceObject     исходный объект
-     * @param destinationClass класс, в который надо преобразовать объект
-     * @param <S>              тип исходного объекта
-     * @param <D>              тип объекта, к который надо преобразовать исходный объект
-     * @return экземпляр класса D с данными из sourceObject
+     * @param sourceObject     initial object
+     * @param destinationClass the class to transform the object to
+     * @param <S>              initial object type
+     * @param <D>              object type, to transform the initial object to
+     * @return an example of class D with data from sourceObject
      */
     <S, D> D map(S sourceObject, Class<D> destinationClass);
 
     /**
-     * Запись занных из sourceObject в destinationObject
+     * Writing of data from sourceObject to destinationObject
      *
      * @param sourceObject
      * @param destinationObject
@@ -29,7 +29,7 @@ public interface MapperFacade {
     <S, D> void map(S sourceObject, D destinationObject);
 
     /**
-     * Преобразование коллекции оъектов
+     * Collection of objects transformation
      *
      * @param source
      * @param destinationClass

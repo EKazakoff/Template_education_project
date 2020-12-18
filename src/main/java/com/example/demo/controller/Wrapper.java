@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 
+/**
+ * The type Wrapper.
+ */
 @ControllerAdvice
 public class Wrapper implements ResponseBodyAdvice<Object> {
 

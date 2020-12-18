@@ -6,8 +6,8 @@ import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Service;
 
 /**
- * Фабрика для создания MapperFactory.
- * При необходимости можно добавить кастомные мапперы
+ * Factory for creation MapperFactory.
+ *
  */
 @Service
 public class CustomMapperFactory implements FactoryBean<MapperFactory> {

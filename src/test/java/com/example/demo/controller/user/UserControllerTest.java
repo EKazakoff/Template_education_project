@@ -15,6 +15,9 @@ import javax.transaction.Transactional;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * The type User controller test.
+ */
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @Transactional
@@ -22,9 +25,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class UserControllerTest {
 
+    /**
+     * The Mock mvc.
+     */
     @Autowired
     MockMvc mockMvc;
 
+    /**
+     * Test get user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testGetUser() throws Exception {
         this.mockMvc.perform(post("/api/user/list")
@@ -36,6 +47,11 @@ class UserControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test update user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testUpdateUser() throws Exception {
         this.mockMvc.perform(post("/api/user/update")
@@ -50,6 +66,11 @@ class UserControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test save user.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void testSaveUser() throws Exception {
         this.mockMvc.perform(post("/api/user/save")
@@ -64,6 +85,11 @@ class UserControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * Test list user.
+     *
+     * @throws Exception the exception
+     */
 /*    @Test
     public void testListUser() throws Exception {
         mockMvc.perform(get("api/user/1")
