@@ -97,7 +97,7 @@ public class OrganizationControllerTest {
      */
     @Test
     public void testListOrganization() throws Exception {
-        mockMvc.perform(get("api/organization/11")
+        mockMvc.perform(get("/api/organization/11")
                 .accept(MediaType.APPLICATION_JSON)).
                 andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk());
